@@ -43,6 +43,7 @@
             txtEmail = new TextBox();
             lblFullName = new Label();
             lblEmail = new Label();
+            btnReset = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -177,11 +178,22 @@
             lblEmail.TabIndex = 14;
             lblEmail.Text = "Email";
             // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(1041, 132);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(112, 34);
+            btnReset.TabIndex = 15;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
+            // 
             // ManageUsersForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1407, 566);
+            Controls.Add(btnReset);
             Controls.Add(lblEmail);
             Controls.Add(lblFullName);
             Controls.Add(txtEmail);
@@ -222,5 +234,6 @@
         private TextBox txtEmail;
         private Label lblFullName;
         private Label lblEmail;
+        private Button btnReset;
     }
 }

@@ -152,7 +152,7 @@ namespace BookHaven.UI.Forms.User
                 Email = dgvUsers.Rows[rowIndex].Cells["Email"].Value?.ToString(),
                 CreatedAt = Convert.ToDateTime(dgvUsers.Rows[rowIndex].Cells["CreatedAt"].Value),
                 Role = Enum.TryParse(
-                        dgvUsers.Rows[rowIndex].Cells["Role"].Value?.ToString(), 
+                        dgvUsers.Rows[rowIndex].Cells["Role"].Value?.ToString(),
                         out UserRole role
                     ) ? role : UserRole.SalesClerk
             };
@@ -180,9 +180,9 @@ namespace BookHaven.UI.Forms.User
                 if (success)
                 {
                     MessageBox.Show(
-                        $"User {action} successfully.", 
-                        "Success", 
-                        MessageBoxButtons.OK, 
+                        $"User {action} successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
 
@@ -277,9 +277,9 @@ namespace BookHaven.UI.Forms.User
                 }
 
                 var confirmResult = MessageBox.Show(
-                    $"Are you sure you want to delete {_selectedUser.Username}?", 
-                    "Confirm Delete", 
-                    MessageBoxButtons.YesNo, 
+                    $"Are you sure you want to delete {_selectedUser.Username}?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
                 );
 
@@ -308,6 +308,11 @@ namespace BookHaven.UI.Forms.User
             {
                 ShowError("User deletion failed.", ex);
             }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
         }
     }
 }
