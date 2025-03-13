@@ -66,6 +66,27 @@ namespace BookHaven.DAL
             }
         }
 
+        public object ExecuteScalar(string query, SqlParameter[] parameters)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                        return cmd.ExecuteScalar(); // Returns the first column of the first row
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("ExecuteScalar failed: " + ex.Message);
+                return null;
+            }
+        }
+
         public bool TestConnection()
         {
             try

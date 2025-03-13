@@ -149,7 +149,7 @@ namespace BookHaven.UI.Forms.Supplier
 
             try
             {
-                bool success = isUpdate ? _supplierService.UpdateSupplier(supplier) : _supplierService.CreateSupplier(supplier);
+                bool success = isUpdate ? _supplierService.UpdateSupplier(supplier) : (_supplierService.CreateSupplier(supplier) != -1);
                 string action = isUpdate ? "updated" : "added";
 
                 if (success)

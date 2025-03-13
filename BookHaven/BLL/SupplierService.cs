@@ -16,7 +16,7 @@ namespace BookHaven.BLL
 
         public Supplier? GetSupplierById(int id) => _supplierRepo.GetSupplierById(id);
 
-        public bool CreateSupplier(Supplier supplier)
+        public int CreateSupplier(Supplier supplier)
             => _supplierRepo.CreateSupplier(supplier);
 
         public bool UpdateSupplier(Supplier supplier)

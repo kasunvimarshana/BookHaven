@@ -16,12 +16,14 @@ namespace BookHaven.DAL
     {
         private readonly DatabaseHelper _dbHelper = new DatabaseHelper();
 
-        public bool CreateSupplier(Supplier supplier)
+        public int CreateSupplier(Supplier supplier)
         {
             try
             {
-                string query = "INSERT INTO Suppliers (Name, ContactPerson, Phone, Email, Address, CreatedAt) " +
-                               "VALUES (@Name, @ContactPerson, @Phone, @Email, @Address, @CreatedAt)";
+                string query = @"
+                            INSERT INTO Suppliers (Name, ContactPerson, Phone, Email, Address, CreatedAt)
+                            OUTPUT INSERTED.Id
+                            VALUES (@Name, @ContactPerson, @Phone, @Email, @Address, @CreatedAt)";
                 SqlParameter[] parameters = {
                     new SqlParameter("@Name", SqlDbType.NVarChar) { Value = supplier.Name },
                     new SqlParameter("@ContactPerson", SqlDbType.NVarChar) { Value = supplier.ContactPerson },
@@ -31,12 +33,14 @@ namespace BookHaven.DAL
                     new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = supplier.CreatedAt }
                 };
 
-                return _dbHelper.ExecuteNonQuery(query, parameters) > 0;
+                // Execute the query and return the inserted ID
+                object result = _dbHelper.ExecuteScalar(query, parameters);
+                return result != null ? Convert.ToInt32(result) : -1;
             }
             catch (Exception ex)
             {
                 Logger.LogError("CreateSupplier failed: " + ex.Message);
-                return false;
+                return -1;
             }
         }
 
