@@ -69,7 +69,7 @@ namespace BookHaven.UI.Forms.Customer
             }
             catch (Exception ex)
             {
-                ShowError("Failed to load users.", ex);
+                ShowError("Failed to load customers.", ex);
             }
         }
 
@@ -110,7 +110,7 @@ namespace BookHaven.UI.Forms.Customer
                 return;
             }
 
-            _isUpdateMode = true; // Set update mode flag when selecting a user for update
+            _isUpdateMode = true; // Set update mode flag when selecting a customer for update
             _selectedCustomer = GetCustomerFromGrid(e.RowIndex);
             BindCustomerToControls();
             ToggleButtons(isUpdateMode: true);
