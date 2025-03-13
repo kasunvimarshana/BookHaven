@@ -20,12 +20,17 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = "INSERT INTO Users (Username, Password, Role) VALUES (@Username, @Password, @Role)";
+                string query = "INSERT INTO Users (Username, Password, Role, FullName, Email, CreatedAt) " +
+                               "VALUES (@Username, @PasswordHash, @Role, @FullName, @Email, @CreatedAt)";
                 SqlParameter[] parameters = {
                     new SqlParameter("@Username", SqlDbType.NVarChar) { Value = user.Username },
-                    new SqlParameter("@Password", SqlDbType.NVarChar) { Value = PasswordHelper.HashPassword(user.Password) },
-                    new SqlParameter("@Role", SqlDbType.NVarChar) { Value = user.Role.ToString() }
+                    new SqlParameter("@PasswordHash", SqlDbType.NVarChar) { Value = PasswordHelper.HashPassword(user.Password) },
+                    new SqlParameter("@Role", SqlDbType.NVarChar) { Value = user.Role.ToString() },
+                    new SqlParameter("@FullName", SqlDbType.NVarChar) { Value = user.FullName },
+                    new SqlParameter("@Email", SqlDbType.NVarChar) { Value = user.Email },
+                    new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = user.CreatedAt }
                 };
+                
                 return _dbHelper.ExecuteNonQuery(query, parameters) > 0;
             }
             catch (Exception ex)
@@ -40,15 +45,17 @@ namespace BookHaven.DAL
             try
             {
                 // If the password is provided, we update it, otherwise, we skip updating the password
-                string query = "UPDATE Users SET Username = @Username, Role = @Role" +
+                string query = "UPDATE Users SET Username = @Username, Role = @Role, FullName = @FullName, Email = @Email" +
                                (string.IsNullOrEmpty(user.Password) ? "" : ", Password = @Password") +
                                " WHERE Id = @Id";
-                
+
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {
                     new SqlParameter("@Id", SqlDbType.Int) { Value = user.Id },
                     new SqlParameter("@Username", SqlDbType.NVarChar) { Value = user.Username },
-                    new SqlParameter("@Role", SqlDbType.NVarChar) { Value = user.Role.ToString() }
+                    new SqlParameter("@Role", SqlDbType.NVarChar) { Value = user.Role.ToString() },
+                    new SqlParameter("@FullName", SqlDbType.NVarChar) { Value = user.FullName },
+                    new SqlParameter("@Email", SqlDbType.NVarChar) { Value = user.Email }
                 };
 
                 // If a password is provided, hash it and add to parameters
@@ -87,7 +94,7 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = "SELECT Id, Username, Password, Role FROM Users";
+                string query = "SELECT Id, Username, Password, Role, FullName, Email, CreatedAt FROM Users";
                 DataTable dt = _dbHelper.ExecuteQuery(query, new SqlParameter[] { });
 
                 if (dt == null)
@@ -113,7 +120,7 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = "SELECT Id, Username, Password, Role FROM Users WHERE Id = @Id";
+                string query = "SELECT Id, Username, Password, Role, FullName, Email, CreatedAt FROM Users WHERE Id = @Id";
                 SqlParameter[] parameters = {
                     new SqlParameter("@Id", id)
                 };
@@ -138,7 +145,7 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = "SELECT Id, Username, Password, Role FROM Users WHERE Username = @Username";
+                string query = "SELECT Id, Username, Password, Role, FullName, Email, CreatedAt FROM Users WHERE Username = @Username";
                 SqlParameter[] parameters = {
                     new SqlParameter("@Username", username)
                 };
@@ -170,7 +177,10 @@ namespace BookHaven.DAL
                 Role = Enum.TryParse(
                     row["Role"].ToString(),
                     out UserRole role
-                ) ? role : throw new Exception("Invalid role in database")
+                ) ? role : throw new Exception("Invalid role in database"),
+                FullName = row["FullName"].ToString(),
+                Email = row["Email"].ToString(),
+                CreatedAt = Convert.ToDateTime(row["CreatedAt"])
             };
         }
     }

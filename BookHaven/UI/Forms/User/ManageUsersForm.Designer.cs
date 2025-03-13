@@ -39,6 +39,10 @@
             lblPassword = new Label();
             lblUserRole = new Label();
             panel1 = new Panel();
+            txtFullName = new TextBox();
+            txtEmail = new TextBox();
+            lblFullName = new Label();
+            lblEmail = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -64,7 +68,7 @@
             // 
             // btnAddUser
             // 
-            btnAddUser.Location = new Point(676, 4);
+            btnAddUser.Location = new Point(1041, 12);
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(112, 34);
             btnAddUser.TabIndex = 2;
@@ -74,7 +78,7 @@
             // 
             // btnDeleteUser
             // 
-            btnDeleteUser.Location = new Point(676, 84);
+            btnDeleteUser.Location = new Point(1041, 92);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new Size(112, 34);
             btnDeleteUser.TabIndex = 3;
@@ -84,7 +88,7 @@
             // 
             // btnUpdateUser
             // 
-            btnUpdateUser.Location = new Point(676, 44);
+            btnUpdateUser.Location = new Point(1041, 52);
             btnUpdateUser.Name = "btnUpdateUser";
             btnUpdateUser.Size = new Size(112, 34);
             btnUpdateUser.TabIndex = 4;
@@ -141,11 +145,47 @@
             panel1.Size = new Size(1383, 338);
             panel1.TabIndex = 10;
             // 
+            // txtFullName
+            // 
+            txtFullName.Location = new Point(600, 12);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(182, 31);
+            txtFullName.TabIndex = 11;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(600, 60);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(182, 31);
+            txtEmail.TabIndex = 12;
+            // 
+            // lblFullName
+            // 
+            lblFullName.AutoSize = true;
+            lblFullName.Location = new Point(466, 15);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(91, 25);
+            lblFullName.TabIndex = 13;
+            lblFullName.Text = "Full Name";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(466, 63);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(54, 25);
+            lblEmail.TabIndex = 14;
+            lblEmail.Text = "Email";
+            // 
             // ManageUsersForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1407, 566);
+            Controls.Add(lblEmail);
+            Controls.Add(lblFullName);
+            Controls.Add(txtEmail);
+            Controls.Add(txtFullName);
             Controls.Add(panel1);
             Controls.Add(lblUserRole);
             Controls.Add(lblPassword);
@@ -178,5 +218,9 @@
         private Label lblPassword;
         private Label lblUserRole;
         private Panel panel1;
+        private TextBox txtFullName;
+        private TextBox txtEmail;
+        private Label lblFullName;
+        private Label lblEmail;
     }
 }
