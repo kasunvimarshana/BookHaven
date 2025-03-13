@@ -95,7 +95,7 @@ CREATE TABLE SalesDetails (
     BookID INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
-    Subtotal DECIMAL(10,2) AS (Quantity * Price) PERSISTED,
+    Subtotal AS (Quantity * Price) PERSISTED,
     FOREIGN KEY (SaleID) REFERENCES Sales(Id) ON DELETE CASCADE,
     FOREIGN KEY (BookID) REFERENCES Books(Id) ON DELETE CASCADE
 );
@@ -125,7 +125,7 @@ CREATE TABLE OrderDetails (
     BookID INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
-    Subtotal DECIMAL(10,2) AS (Quantity * Price) PERSISTED,
+    Subtotal AS (Quantity * Price) PERSISTED,
     FOREIGN KEY (OrderID) REFERENCES Orders(Id) ON DELETE CASCADE,
     FOREIGN KEY (BookID) REFERENCES Books(Id) ON DELETE CASCADE
 );
@@ -140,4 +140,3 @@ CREATE INDEX IDX_Customers_Email ON Customers(Email);
 CREATE INDEX IDX_Suppliers_Email ON Suppliers(Email);
 CREATE INDEX IDX_Orders_OrderDate ON Orders(OrderDate);
 ```
-
