@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookHaven.Models
 {
-    class Sale
+    class Order
     {
         [Key]
         public int Id { get; set; }
@@ -19,18 +19,12 @@ namespace BookHaven.Models
         [ForeignKey("CustomerID")]
         public virtual Customer Customer { get; set; }
 
-        [Required]
-        public int UserID { get; set; }
-
-        [ForeignKey("UserID")]
-        public virtual User User { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.Now;
 
         [Required, Column(TypeName = "decimal(10,2)")]
         public decimal TotalAmount { get; set; }
 
-        [Column(TypeName = "decimal(5,2)")]
-        public decimal Discount { get; set; } = 0;
-
-        public DateTime SaleDate { get; set; } = DateTime.Now;
+        [Required, StringLength(20)]
+        public string OrderStatus { get; set; } = "Pending";
     }
 }
