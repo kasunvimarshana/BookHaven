@@ -16,7 +16,7 @@ namespace BookHaven.DAL
     {
         private readonly DatabaseHelper _dbHelper = new DatabaseHelper();
 
-        public int CreateBook(Book book)
+        public int CreateBook(Book book, SqlTransaction transaction = null)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace BookHaven.DAL
                 };
 
                 // Execute the query and return the inserted ID
-                object result = _dbHelper.ExecuteScalar(query, parameters);
+                object result = _dbHelper.ExecuteScalar(query, parameters, transaction);
                 return result != null ? Convert.ToInt32(result) : -1;
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace BookHaven.DAL
             }
         }
 
-        public bool UpdateBook(Book book)
+        public bool UpdateBook(Book book, SqlTransaction transaction = null)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace BookHaven.DAL
                     new SqlParameter("@SupplierID", SqlDbType.Int) { Value = book.SupplierID ?? (object)DBNull.Value }
                 };
 
-                return _dbHelper.ExecuteNonQuery(query, parameters.ToArray()) > 0;
+                return _dbHelper.ExecuteNonQuery(query, parameters.ToArray(), transaction) > 0;
             }
             catch (Exception ex)
             {
@@ -75,7 +75,7 @@ namespace BookHaven.DAL
             }
         }
 
-        public bool DeleteBook(int id)
+        public bool DeleteBook(int id, SqlTransaction transaction = null)
         {
             try
             {
@@ -83,7 +83,7 @@ namespace BookHaven.DAL
                 SqlParameter[] parameters = {
                     new SqlParameter("@Id", SqlDbType.Int) { Value = id }
                 };
-                return _dbHelper.ExecuteNonQuery(query, parameters) > 0;
+                return _dbHelper.ExecuteNonQuery(query, parameters, transaction) > 0;
             }
             catch (Exception ex)
             {
