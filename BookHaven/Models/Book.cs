@@ -31,9 +31,9 @@ namespace BookHaven.Models
         [Required]
         public int StockQuantity { get; set; }
 
-        public int? SupplierID { get; set; }
+        public int? SupplierId { get; set; }
 
-        [ForeignKey("SupplierID")]
+        [ForeignKey("SupplierId")]
         public virtual Supplier Supplier { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;

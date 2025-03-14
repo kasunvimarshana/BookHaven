@@ -21,9 +21,9 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        INSERT INTO Books (Title, Author, Genre, ISBN, Price, StockQuantity, SupplierID, CreatedAt) 
+                        INSERT INTO Books (Title, Author, Genre, ISBN, Price, StockQuantity, SupplierId, CreatedAt) 
                         OUTPUT INSERTED.Id
-                        VALUES (@Title, @Author, @Genre, @ISBN, @Price, @StockQuantity, @SupplierID, @CreatedAt)";
+                        VALUES (@Title, @Author, @Genre, @ISBN, @Price, @StockQuantity, @SupplierId, @CreatedAt)";
 
                 SqlParameter[] parameters = {
                     new SqlParameter("@Title", SqlDbType.NVarChar) { Value = book.Title },
@@ -32,7 +32,7 @@ namespace BookHaven.DAL
                     new SqlParameter("@ISBN", SqlDbType.NVarChar) { Value = book.ISBN },
                     new SqlParameter("@Price", SqlDbType.Decimal) { Value = book.Price },
                     new SqlParameter("@StockQuantity", SqlDbType.Int) { Value = book.StockQuantity },
-                    new SqlParameter("@SupplierID", SqlDbType.Int) { Value = book.SupplierID ?? (object)DBNull.Value },
+                    new SqlParameter("@SupplierId", SqlDbType.Int) { Value = book.SupplierId ?? (object)DBNull.Value },
                     new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = book.CreatedAt }
                 };
 
@@ -52,7 +52,7 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        UPDATE Books SET Title = @Title, Author = @Author, Genre = @Genre, ISBN = @ISBN, Price = @Price, StockQuantity = @StockQuantity, SupplierID = @SupplierID WHERE Id = @Id";
+                        UPDATE Books SET Title = @Title, Author = @Author, Genre = @Genre, ISBN = @ISBN, Price = @Price, StockQuantity = @StockQuantity, SupplierId = @SupplierId WHERE Id = @Id";
 
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {
@@ -63,7 +63,7 @@ namespace BookHaven.DAL
                     new SqlParameter("@ISBN", SqlDbType.NVarChar) { Value = book.ISBN },
                     new SqlParameter("@Price", SqlDbType.Decimal) { Value = book.Price },
                     new SqlParameter("@StockQuantity", SqlDbType.Int) { Value = book.StockQuantity },
-                    new SqlParameter("@SupplierID", SqlDbType.Int) { Value = book.SupplierID ?? (object)DBNull.Value }
+                    new SqlParameter("@SupplierId", SqlDbType.Int) { Value = book.SupplierId ?? (object)DBNull.Value }
                 };
 
                 return _dbHelper.ExecuteNonQuery(query, parameters.ToArray(), transaction) > 0;
@@ -96,7 +96,7 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = @"SELECT Id, Title, Author, Genre, ISBN, Price, StockQuantity, SupplierID FROM Books";
+                string query = @"SELECT Id, Title, Author, Genre, ISBN, Price, StockQuantity, SupplierId FROM Books";
                 DataTable dt = _dbHelper.ExecuteQuery(query, new SqlParameter[] { });
 
                 if (dt == null)
@@ -122,7 +122,7 @@ namespace BookHaven.DAL
         {
             try
             {
-                string query = @"SELECT Id, Title, Author, Genre, ISBN, Price, StockQuantity, SupplierID FROM Books WHERE Id = @Id";
+                string query = @"SELECT Id, Title, Author, Genre, ISBN, Price, StockQuantity, SupplierId FROM Books WHERE Id = @Id";
                 SqlParameter[] parameters = {
                     new SqlParameter("@Id", id)
                 };
@@ -154,7 +154,7 @@ namespace BookHaven.DAL
                 ISBN = row["ISBN"].ToString(),
                 Price = Convert.ToDecimal(row["Price"]),
                 StockQuantity = Convert.ToInt32(row["StockQuantity"]),
-                SupplierID = row["SupplierID"] != DBNull.Value ? Convert.ToInt32(row["SupplierID"]) : (int?)null,
+                SupplierId = row["SupplierId"] != DBNull.Value ? Convert.ToInt32(row["SupplierId"]) : (int?)null,
             };
         }
     }
