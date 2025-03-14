@@ -63,9 +63,9 @@ CREATE TABLE Books (
     ISBN NVARCHAR(20) UNIQUE NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
     StockQuantity INT CHECK (StockQuantity >= 0) NOT NULL,
-    SupplierID INT NULL,
+    SupplierId INT NULL,
     CreatedAt DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (SupplierID) REFERENCES Suppliers(Id) ON DELETE SET NULL
+    FOREIGN KEY (SupplierId) REFERENCES Suppliers(Id) ON DELETE SET NULL
 );
 ```
 
@@ -75,13 +75,13 @@ Stores completed sales transactions.
 -- Sales table: Stores completed sales transactions
 CREATE TABLE Sales (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    CustomerID INT NOT NULL,
-    UserID INT NOT NULL,
+    CustomerId INT NOT NULL,
+    UserId INT NOT NULL,
     TotalAmount DECIMAL(10,2) NOT NULL,
     Discount DECIMAL(5,2) DEFAULT 0,
     SaleDate DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (CustomerID) REFERENCES Customers(Id) ON DELETE CASCADE,
-    FOREIGN KEY (UserID) REFERENCES Users(Id) ON DELETE CASCADE
+    FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE CASCADE,
+    FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
 );
 ```
 
@@ -91,13 +91,13 @@ Stores books sold in each sale transaction.
 -- SalesDetails table: Stores books sold in each sale transaction
 CREATE TABLE SalesDetails (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    SaleID INT NOT NULL,
-    BookID INT NOT NULL,
+    SaleId INT NOT NULL,
+    BookId INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
     Subtotal AS (Quantity * Price) PERSISTED,
-    FOREIGN KEY (SaleID) REFERENCES Sales(Id) ON DELETE CASCADE,
-    FOREIGN KEY (BookID) REFERENCES Books(Id) ON DELETE CASCADE
+    FOREIGN KEY (SaleId) REFERENCES Sales(Id) ON DELETE CASCADE,
+    FOREIGN KEY (BookId) REFERENCES Books(Id) ON DELETE CASCADE
 );
 ```
 
@@ -107,11 +107,11 @@ Stores customer orders.
 -- Orders table: Stores customer orders
 CREATE TABLE Orders (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    CustomerID INT NOT NULL,
+    CustomerId INT NOT NULL,
     OrderDate DATETIME DEFAULT GETDATE(),
     TotalAmount DECIMAL(10,2) NOT NULL,
     OrderStatus NVARCHAR(20) CHECK (OrderStatus IN ('Pending', 'Processing', 'Completed', 'Cancelled')) NOT NULL DEFAULT 'Pending',
-    FOREIGN KEY (CustomerID) REFERENCES Customers(Id) ON DELETE CASCADE
+    FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE CASCADE
 );
 ```
 
@@ -121,13 +121,13 @@ Stores books ordered in each order.
 -- OrderDetails table: Stores books ordered in each order
 CREATE TABLE OrderDetails (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    OrderID INT NOT NULL,
-    BookID INT NOT NULL,
+    OrderId INT NOT NULL,
+    BookId INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
     Subtotal AS (Quantity * Price) PERSISTED,
-    FOREIGN KEY (OrderID) REFERENCES Orders(Id) ON DELETE CASCADE,
-    FOREIGN KEY (BookID) REFERENCES Books(Id) ON DELETE CASCADE
+    FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE,
+    FOREIGN KEY (BookId) REFERENCES Books(Id) ON DELETE CASCADE
 );
 ```
 
@@ -139,4 +139,21 @@ CREATE INDEX IDX_Books_ISBN ON Books(ISBN);
 CREATE INDEX IDX_Customers_Email ON Customers(Email);
 CREATE INDEX IDX_Suppliers_Email ON Suppliers(Email);
 CREATE INDEX IDX_Orders_OrderDate ON Orders(OrderDate);
+```
+
+```sql
+-- Drop tables in reverse order to avoid foreign key constraint issues
+DROP TABLE IF EXISTS OrderDetails;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS SalesDetails;
+DROP TABLE IF EXISTS Sales;
+DROP TABLE IF EXISTS Books;
+DROP TABLE IF EXISTS Suppliers;
+DROP TABLE IF EXISTS Customers;
+DROP TABLE IF EXISTS Users;
+```
+
+```sql
+-- Drop the database
+DROP DATABASE IF EXISTS BookHavenDB;
 ```
