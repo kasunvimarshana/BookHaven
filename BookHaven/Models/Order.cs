@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookHaven.Enums;
 
 namespace BookHaven.Models
 {
@@ -14,17 +15,19 @@ namespace BookHaven.Models
         public int Id { get; set; }
 
         [Required]
-        public int CustomerID { get; set; }
+        public int CustomerId { get; set; }
 
-        [ForeignKey("CustomerID")]
+        [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
 
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         [Required, Column(TypeName = "decimal(10,2)")]
-        public decimal TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; } = 0;
 
-        [Required, StringLength(20)]
-        public string OrderStatus { get; set; } = "Pending";
+        [Required]
+        public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
+
+        public List<OrderDetail> OrderDetails { get; set; }
     }
 }
