@@ -178,19 +178,13 @@ namespace BookHaven.BLL
                 throw new InvalidOperationException("Order or Book not found.");
             }
 
-            // Validate stock before updating
-            if (book.StockQuantity < orderDetail.Quantity)
-            {
-                throw new InvalidOperationException("Insufficient stock for the requested book.");
-            }
-
             // Recalculate order total amount
             List<OrderDetail> orderDetails = GetOrderDetailsByOrderId(orderDetail.OrderId);
             decimal totalAmount = orderDetails.Sum(od => od.Quantity * od.Price);
             order.TotalAmount = totalAmount;
 
-            // Update book stock
-            book.StockQuantity -= orderDetail.Quantity;
+            // Update book stock (increase stock)
+            book.StockQuantity += orderDetail.Quantity;
 
             // Update records
             _orderRepo.UpdateOrder(order, transaction);
@@ -221,13 +215,15 @@ namespace BookHaven.BLL
                 throw new InvalidOperationException("Order or Book not found.");
             }
 
-            // Adjust stock before updating order detail
-            int stockDifference = existingDetail.Quantity - orderDetail.Quantity;
-            if (book.StockQuantity + stockDifference < 0)
+            // Calculate stock adjustment
+            int stockAdjustment = orderDetail.Quantity - existingDetail.Quantity;
+            // Adjust stock (increase or decrease)
+            book.StockQuantity += stockAdjustment;
+
+            if (book.StockQuantity < 0)
             {
                 throw new InvalidOperationException("Insufficient stock for the requested update.");
             }
-            book.StockQuantity += stockDifference;
 
             // Update order detail
             bool isUpdated = _orderDetailRepo.UpdateOrderDetail(orderDetail, transaction);
