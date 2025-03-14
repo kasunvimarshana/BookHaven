@@ -13,9 +13,9 @@ namespace BookHaven.DAL
         void BeginTransaction();
         void CommitTransaction();
         void RollbackTransaction();
-        int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
-        DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
-        object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
+        int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction? transaction = null);
+        DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction? transaction = null);
+        object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction? transaction = null);
         bool TestConnection();
     }
 }

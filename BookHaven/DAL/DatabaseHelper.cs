@@ -21,11 +21,11 @@ namespace BookHaven.DAL
             _connectionString = ConfigurationManager.ConnectionStrings["BookHavenDB"].ConnectionString;
         }
 
-        public SqlConnection GetConnection(SqlTransaction transaction = null)
+        public SqlConnection GetConnection(SqlTransaction? transaction = null)
         {
             if (transaction != null)
             {
-                return _connection = transaction.Connection;
+                return transaction.Connection;
             }
 
             if (_connection == null || _connection?.State == ConnectionState.Closed)
@@ -125,12 +125,12 @@ namespace BookHaven.DAL
             }
         }
 
-        public int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        public int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction? transaction = null)
         {
             return ExecuteCommand(query, parameters, transaction, cmd => cmd.ExecuteNonQuery());
         }
 
-        public DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        public DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction? transaction = null)
         {
             return ExecuteCommand(query, parameters, transaction, cmd =>
             {
@@ -143,7 +143,7 @@ namespace BookHaven.DAL
             });
         }
 
-        public object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        public object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction? transaction = null)
         {
             return ExecuteCommand(query, parameters, transaction, cmd => cmd.ExecuteScalar());
         }
