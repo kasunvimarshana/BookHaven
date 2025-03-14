@@ -16,7 +16,7 @@ namespace BookHaven.DAL
     {
         private readonly DatabaseHelper _dbHelper = new DatabaseHelper();
 
-        public bool CreateUser(User user)
+        public bool CreateUser(User user, SqlTransaction transaction = null)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace BookHaven.DAL
                     new SqlParameter("@CreatedAt", SqlDbType.DateTime) { Value = user.CreatedAt }
                 };
                 
-                return _dbHelper.ExecuteNonQuery(query, parameters) > 0;
+                return _dbHelper.ExecuteNonQuery(query, parameters, transaction) > 0;
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace BookHaven.DAL
             }
         }
 
-        public bool UpdateUser(User user)
+        public bool UpdateUser(User user, SqlTransaction transaction = null)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace BookHaven.DAL
                     parameters.Add(new SqlParameter("@Password", SqlDbType.NVarChar) { Value = PasswordHelper.HashPassword(user.Password) });
                 }
                 
-                return _dbHelper.ExecuteNonQuery(query, parameters.ToArray()) > 0;
+                return _dbHelper.ExecuteNonQuery(query, parameters.ToArray(), transaction) > 0;
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace BookHaven.DAL
             }
         }
 
-        public bool DeleteUser(int id)
+        public bool DeleteUser(int id, SqlTransaction transaction = null)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace BookHaven.DAL
                 SqlParameter[] parameters = {
                     new SqlParameter("@Id", SqlDbType.Int) { Value = id }
                 };
-                return _dbHelper.ExecuteNonQuery(query, parameters) > 0;
+                return _dbHelper.ExecuteNonQuery(query, parameters, transaction) > 0;
             }
             catch (Exception ex)
             {

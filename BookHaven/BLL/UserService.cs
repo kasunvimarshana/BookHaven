@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using BookHaven.DAL;
 using BookHaven.Models;
 
@@ -16,13 +17,13 @@ namespace BookHaven.BLL
 
         public User? GetUserById(int id) => _userRepo.GetUserById(id);
 
-        public bool CreateUser(User user)
-            => _userRepo.CreateUser(user);
+        public bool CreateUser(User user, SqlTransaction transaction = null)
+            => _userRepo.CreateUser(user, transaction);
 
-        public bool UpdateUser(User user) 
-            => _userRepo.UpdateUser(user);
+        public bool UpdateUser(User user, SqlTransaction transaction = null) 
+            => _userRepo.UpdateUser(user, transaction);
 
-        public bool DeleteUser(int id) => _userRepo.DeleteUser(id);
+        public bool DeleteUser(int id, SqlTransaction transaction = null) => _userRepo.DeleteUser(id, transaction);
     }
 }
 
