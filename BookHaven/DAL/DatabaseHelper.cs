@@ -13,78 +13,139 @@ namespace BookHaven.DAL
     class DatabaseHelper: IDatabaseHelper
     {
         private readonly string _connectionString;
+        private SqlConnection _connection;
+        private SqlTransaction _transaction;
 
         public DatabaseHelper()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["BookHavenDB"].ConnectionString;
         }
 
-        public int ExecuteNonQuery(string query, SqlParameter[] parameters)
+        public SqlConnection GetConnection(SqlTransaction transaction = null)
         {
-            try
+            if (transaction != null)
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddRange(parameters);
-                        return cmd.ExecuteNonQuery();
-                    }
-                }
+                return _connection = transaction.Connection;
             }
-            catch (Exception ex)
+
+            if (_connection == null || _connection?.State == ConnectionState.Closed)
             {
-                Logger.LogError("ExecuteNonQuery failed: " + ex.Message);
-                return -1;
+                _connection = new SqlConnection(_connectionString);
+            }
+
+            return _connection;
+        }
+
+        public void Dispose()
+        {
+            _transaction?.Dispose();
+            _transaction = null;
+            if (_connection != null)
+            {
+                if (_connection?.State == ConnectionState.Open)
+                {
+                    _connection?.Close();
+                }
+                _connection?.Dispose();
+                _connection = null;
             }
         }
 
-        public DataTable ExecuteQuery(string query, SqlParameter[] parameters)
+        public void BeginTransaction()
+        {
+            if (_connection == null)
+            {
+                _connection = new SqlConnection(_connectionString);
+            }
+
+            if (_connection.State == ConnectionState.Closed)
+            {
+                _connection.Open();
+            }
+
+            _transaction = _connection.BeginTransaction();
+        }
+
+        public void CommitTransaction()
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddRange(parameters);
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            adapter.Fill(dt);
-                            return dt;
-                        }
-                    }
-                }
+                _transaction?.Commit();
             }
             catch (Exception ex)
             {
-                Logger.LogError("ExecuteQuery failed: " + ex.Message);
-                return null;
+                Logger.LogError("CommitTransaction failed: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                Dispose();
             }
         }
 
-        public object ExecuteScalar(string query, SqlParameter[] parameters)
+        public void RollbackTransaction()
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
+                _transaction?.Rollback();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("RollbackTransaction failed: " + ex.Message);
+                throw;
+            }
+            finally
+            {
+                Dispose();
+            }
+        }
+
+        private T ExecuteCommand<T>(string query, SqlParameter[] parameters, SqlTransaction transaction, Func<SqlCommand, T> commandAction)
+        {
+            try
+            {
+                using (SqlConnection conn = GetConnection(transaction))
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    if (conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn, transaction))
                     {
                         cmd.Parameters.AddRange(parameters);
-                        return cmd.ExecuteScalar(); // Returns the first column of the first row
+                        return commandAction(cmd);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Logger.LogError("ExecuteScalar failed: " + ex.Message);
-                return null;
+                Logger.LogError($"ExecuteCommand failed: {ex.Message} - Query: {query}");
+                throw;
             }
+        }
+
+        public int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        {
+            return ExecuteCommand(query, parameters, transaction, cmd => cmd.ExecuteNonQuery());
+        }
+
+        public DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        {
+            return ExecuteCommand(query, parameters, transaction, cmd =>
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            });
+        }
+
+        public object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction transaction = null)
+        {
+            return ExecuteCommand(query, parameters, transaction, cmd => cmd.ExecuteScalar());
         }
 
         public bool TestConnection()

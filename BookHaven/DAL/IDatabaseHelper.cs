@@ -10,9 +10,12 @@ namespace BookHaven.DAL
 {
     public interface IDatabaseHelper
     {
-        int ExecuteNonQuery(string query, SqlParameter[] parameters);
-        DataTable ExecuteQuery(string query, SqlParameter[] parameters);
-        object ExecuteScalar(string query, SqlParameter[] parameters);
+        void BeginTransaction();
+        void CommitTransaction();
+        void RollbackTransaction();
+        int ExecuteNonQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
+        DataTable ExecuteQuery(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
+        object ExecuteScalar(string query, SqlParameter[] parameters, SqlTransaction transaction = null);
         bool TestConnection();
     }
 }
