@@ -61,8 +61,8 @@ CREATE TABLE Books (
     Author NVARCHAR(100) NOT NULL,
     Genre NVARCHAR(50),
     ISBN NVARCHAR(20) UNIQUE NOT NULL,
-    Price DECIMAL(10,2) NOT NULL,
-    StockQuantity INT CHECK (StockQuantity >= 0) NOT NULL,
+    Price DECIMAL(10,2) NOT NULL DEFAULT 0,
+    StockQuantity INT CHECK (StockQuantity >= 0) NOT NULL DEFAULT 0,
     SupplierId INT NULL,
     CreatedAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (SupplierId) REFERENCES Suppliers(Id) ON DELETE SET NULL
@@ -77,7 +77,7 @@ CREATE TABLE Sales (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     CustomerId INT NOT NULL,
     UserId INT NOT NULL,
-    TotalAmount DECIMAL(10,2) NOT NULL,
+    TotalAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
     Discount DECIMAL(5,2) DEFAULT 0,
     SaleDate DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE CASCADE,
@@ -94,7 +94,7 @@ CREATE TABLE SalesDetails (
     SaleId INT NOT NULL,
     BookId INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
-    Price DECIMAL(10,2) NOT NULL,
+    Price DECIMAL(10,2) NOT NULL DEFAULT 0,
     Subtotal AS (Quantity * Price) PERSISTED,
     FOREIGN KEY (SaleId) REFERENCES Sales(Id) ON DELETE CASCADE,
     FOREIGN KEY (BookId) REFERENCES Books(Id) ON DELETE CASCADE
@@ -109,7 +109,7 @@ CREATE TABLE Orders (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     CustomerId INT NOT NULL,
     OrderDate DATETIME DEFAULT GETDATE(),
-    TotalAmount DECIMAL(10,2) NOT NULL,
+    TotalAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
     OrderStatus NVARCHAR(20) CHECK (OrderStatus IN ('Pending', 'Processing', 'Completed', 'Cancelled')) NOT NULL DEFAULT 'Pending',
     FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE CASCADE
 );
@@ -124,7 +124,7 @@ CREATE TABLE OrderDetails (
     OrderId INT NOT NULL,
     BookId INT NOT NULL,
     Quantity INT CHECK (Quantity > 0) NOT NULL,
-    Price DECIMAL(10,2) NOT NULL,
+    Price DECIMAL(10,2) NOT NULL DEFAULT 0,
     Subtotal AS (Quantity * Price) PERSISTED,
     FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE,
     FOREIGN KEY (BookId) REFERENCES Books(Id) ON DELETE CASCADE
