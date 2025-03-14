@@ -33,5 +33,7 @@ namespace BookHaven.Models
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public decimal Subtotal => Quantity * Price;
+
+        public decimal CalculateSubtotal() => Quantity * Price;
     }
 }
