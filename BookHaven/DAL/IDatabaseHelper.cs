@@ -12,6 +12,7 @@ namespace BookHaven.DAL
     {
         int ExecuteNonQuery(string query, SqlParameter[] parameters);
         DataTable ExecuteQuery(string query, SqlParameter[] parameters);
+        object ExecuteScalar(string query, SqlParameter[] parameters);
         bool TestConnection();
     }
 }
