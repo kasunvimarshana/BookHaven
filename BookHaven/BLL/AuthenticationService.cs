@@ -40,7 +40,6 @@ namespace BookHaven.BLL
                 Logger.LogError($"Authentication failed for user '{username}': {ex.Message}");
                 return false;
             }
-            return false;
         }
 
         public void Logout()

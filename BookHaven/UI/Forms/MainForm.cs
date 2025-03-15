@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookHaven.Helpers;
 using BookHaven.UI.Forms;
 
 namespace BookHaven.UI.Forms
@@ -20,7 +21,7 @@ namespace BookHaven.UI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void btnBookManager_Click(object sender, EventArgs e)
