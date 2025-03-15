@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
-            dgvOrders = new DataGridView();
             btnOrderDetails = new Button();
-            btnReset = new Button();
-            btnDeleteOrder = new Button();
-            btnUpdateOrder = new Button();
-            btnAddOrder = new Button();
-            lblSupplierId = new Label();
             cmbSupplierId = new ComboBox();
+            btnReset = new Button();
+            lblSupplierId = new Label();
+            btnDeleteOrder = new Button();
+            btnAddOrder = new Button();
+            btnUpdateOrder = new Button();
+            dgvOrders = new DataGridView();
+            btnGenerateReport = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(btnGenerateReport);
             splitContainer1.Panel1.Controls.Add(btnOrderDetails);
             splitContainer1.Panel1.Controls.Add(cmbSupplierId);
             splitContainer1.Panel1.Controls.Add(btnReset);
@@ -68,17 +70,6 @@
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
             // 
-            // dgvOrders
-            // 
-            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrders.Location = new Point(3, 3);
-            dgvOrders.Name = "dgvOrders";
-            dgvOrders.RowHeadersWidth = 62;
-            dgvOrders.Size = new Size(1172, 434);
-            dgvOrders.TabIndex = 8;
-            dgvOrders.CellClick += dgvOrders_CellClick;
-            // 
             // btnOrderDetails
             // 
             btnOrderDetails.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -89,6 +80,14 @@
             btnOrderDetails.Text = "Details";
             btnOrderDetails.UseVisualStyleBackColor = true;
             btnOrderDetails.Click += btnOrderDetails_Click;
+            // 
+            // cmbSupplierId
+            // 
+            cmbSupplierId.FormattingEnabled = true;
+            cmbSupplierId.Location = new Point(226, 6);
+            cmbSupplierId.Name = "cmbSupplierId";
+            cmbSupplierId.Size = new Size(350, 33);
+            cmbSupplierId.TabIndex = 9;
             // 
             // btnReset
             // 
@@ -101,6 +100,16 @@
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += btnReset_Click;
             // 
+            // lblSupplierId
+            // 
+            lblSupplierId.AutoSize = true;
+            lblSupplierId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblSupplierId.Location = new Point(12, 9);
+            lblSupplierId.Name = "lblSupplierId";
+            lblSupplierId.Size = new Size(93, 25);
+            lblSupplierId.TabIndex = 10;
+            lblSupplierId.Text = "Customer";
+            // 
             // btnDeleteOrder
             // 
             btnDeleteOrder.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
@@ -111,17 +120,6 @@
             btnDeleteOrder.Text = "Delete";
             btnDeleteOrder.UseVisualStyleBackColor = true;
             btnDeleteOrder.Click += btnDeleteOrder_Click;
-            // 
-            // btnUpdateOrder
-            // 
-            btnUpdateOrder.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnUpdateOrder.Location = new Point(1054, 53);
-            btnUpdateOrder.Name = "btnUpdateOrder";
-            btnUpdateOrder.Size = new Size(115, 35);
-            btnUpdateOrder.TabIndex = 12;
-            btnUpdateOrder.Text = "Update";
-            btnUpdateOrder.UseVisualStyleBackColor = true;
-            btnUpdateOrder.Click += btnUpdateOrder_Click;
             // 
             // btnAddOrder
             // 
@@ -134,23 +132,38 @@
             btnAddOrder.UseVisualStyleBackColor = true;
             btnAddOrder.Click += btnAddOrder_Click;
             // 
-            // lblSupplierId
+            // btnUpdateOrder
             // 
-            lblSupplierId.AutoSize = true;
-            lblSupplierId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblSupplierId.Location = new Point(12, 9);
-            lblSupplierId.Name = "lblSupplierId";
-            lblSupplierId.Size = new Size(93, 25);
-            lblSupplierId.TabIndex = 10;
-            lblSupplierId.Text = "Customer";
+            btnUpdateOrder.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUpdateOrder.Location = new Point(1054, 53);
+            btnUpdateOrder.Name = "btnUpdateOrder";
+            btnUpdateOrder.Size = new Size(115, 35);
+            btnUpdateOrder.TabIndex = 12;
+            btnUpdateOrder.Text = "Update";
+            btnUpdateOrder.UseVisualStyleBackColor = true;
+            btnUpdateOrder.Click += btnUpdateOrder_Click;
             // 
-            // cmbSupplierId
+            // dgvOrders
             // 
-            cmbSupplierId.FormattingEnabled = true;
-            cmbSupplierId.Location = new Point(226, 6);
-            cmbSupplierId.Name = "cmbSupplierId";
-            cmbSupplierId.Size = new Size(350, 33);
-            cmbSupplierId.TabIndex = 9;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrders.Location = new Point(3, 3);
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.RowHeadersWidth = 62;
+            dgvOrders.Size = new Size(1172, 434);
+            dgvOrders.TabIndex = 8;
+            dgvOrders.CellClick += dgvOrders_CellClick;
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateReport.Location = new Point(933, 12);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(115, 35);
+            btnGenerateReport.TabIndex = 16;
+            btnGenerateReport.Text = "Report";
+            btnGenerateReport.UseVisualStyleBackColor = true;
+            btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // ManageOrdersForm
             // 
@@ -181,5 +194,6 @@
         private Button btnAddOrder;
         private Button btnUpdateOrder;
         private DataGridView dgvOrders;
+        private Button btnGenerateReport;
     }
 }

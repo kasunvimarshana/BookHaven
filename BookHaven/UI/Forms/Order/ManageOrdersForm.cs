@@ -12,6 +12,8 @@ using BookHaven.DAL;
 using BookHaven.Utilities;
 using BookHaven.Enums;
 using Models = BookHaven.Models;
+using System.Diagnostics;
+using BookHaven.Reports;
 
 namespace BookHaven.UI.Forms.Order
 {
@@ -19,6 +21,7 @@ namespace BookHaven.UI.Forms.Order
     {
         private readonly OrderService _orderService;
         private readonly SupplierService _supplierService;
+        private readonly OrderReportService _orderReportService;
         private Models.Order? _selectedOrder;
         private bool _isUpdateMode = false; // Flag to track update mode
 
@@ -27,6 +30,7 @@ namespace BookHaven.UI.Forms.Order
             InitializeComponent();
             _orderService = new OrderService();
             _supplierService = new SupplierService();
+            _orderReportService = new OrderReportService();
             InitializeLayout();
         }
 
@@ -304,6 +308,22 @@ namespace BookHaven.UI.Forms.Order
             // Refresh orders when order details form is closed
             manageOrderDetailsForm.FormClosed += (s, args) => LoadOrders();
             manageOrderDetailsForm.Show();
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reportPath = _orderReportService.GenerateTextReport();
+                MessageBox.Show($"Report generated successfully!\n\nSaved at:\n{reportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Open the text file automatically
+                Process.Start(new ProcessStartInfo(reportPath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to generate report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
