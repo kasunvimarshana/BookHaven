@@ -96,6 +96,7 @@
             dgvBooks.RowHeadersWidth = 62;
             dgvBooks.Size = new Size(1172, 434);
             dgvBooks.TabIndex = 45;
+            dgvBooks.CellClick += dgvBooks_CellClick;
             // 
             // txtStockQuantity
             // 
@@ -140,6 +141,7 @@
             btnReset.TabIndex = 57;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
             // 
             // btnDeleteBook
             // 
@@ -150,6 +152,7 @@
             btnDeleteBook.TabIndex = 56;
             btnDeleteBook.Text = "Delete";
             btnDeleteBook.UseVisualStyleBackColor = true;
+            btnDeleteBook.Click += btnDeleteBook_Click;
             // 
             // btnUpdateBook
             // 
@@ -160,6 +163,7 @@
             btnUpdateBook.TabIndex = 55;
             btnUpdateBook.Text = "Update";
             btnUpdateBook.UseVisualStyleBackColor = true;
+            btnUpdateBook.Click += btnUpdateBook_Click;
             // 
             // btnAddBook
             // 
@@ -170,6 +174,7 @@
             btnAddBook.TabIndex = 54;
             btnAddBook.Text = "Add";
             btnAddBook.UseVisualStyleBackColor = true;
+            btnAddBook.Click += btnAddBook_Click;
             // 
             // txtAuthor
             // 
