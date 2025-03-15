@@ -3,31 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BookHaven.Models;
 using BookHaven.Enums;
-using Microsoft.VisualBasic.ApplicationServices;
-using System.ComponentModel.DataAnnotations;
 
 namespace BookHaven.Models
 {
     class User
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required, StringLength(50)]
         public string Username { get; set; }
 
-        [Required, StringLength(255)]
         public string Password { get; set; }
 
-        [Required, StringLength(100)]
         public string FullName { get; set; }
 
-        [Required]
         public UserRole Role { get; set; }
 
-        [Required, StringLength(100), EmailAddress]
         public string Email { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
