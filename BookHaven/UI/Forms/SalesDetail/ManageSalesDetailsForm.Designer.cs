@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
-            dgvSalesDetails = new DataGridView();
-            btnReset = new Button();
-            btnDeleteSalesDetail = new Button();
-            btnUpdateSalesDetail = new Button();
-            btnAddSalesDetail = new Button();
             txtQuantity = new TextBox();
+            btnReset = new Button();
             lblQuantity = new Label();
+            btnDeleteSalesDetail = new Button();
             txtPrice = new TextBox();
+            btnUpdateSalesDetail = new Button();
             lblPrice = new Label();
+            btnAddSalesDetail = new Button();
             lblBookId = new Label();
             cmbBookId = new ComboBox();
+            dgvSalesDetails = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -74,15 +74,12 @@
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
             // 
-            // dgvSalesDetails
+            // txtQuantity
             // 
-            dgvSalesDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSalesDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSalesDetails.Location = new Point(3, 3);
-            dgvSalesDetails.Name = "dgvSalesDetails";
-            dgvSalesDetails.RowHeadersWidth = 62;
-            dgvSalesDetails.Size = new Size(1175, 434);
-            dgvSalesDetails.TabIndex = 30;
+            txtQuantity.Location = new Point(226, 82);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(350, 31);
+            txtQuantity.TabIndex = 46;
             // 
             // btnReset
             // 
@@ -93,43 +90,7 @@
             btnReset.TabIndex = 36;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteSalesDetail
-            // 
-            btnDeleteSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDeleteSalesDetail.Location = new Point(1054, 94);
-            btnDeleteSalesDetail.Name = "btnDeleteSalesDetail";
-            btnDeleteSalesDetail.Size = new Size(115, 35);
-            btnDeleteSalesDetail.TabIndex = 35;
-            btnDeleteSalesDetail.Text = "Delete";
-            btnDeleteSalesDetail.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateSalesDetail
-            // 
-            btnUpdateSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnUpdateSalesDetail.Location = new Point(1054, 53);
-            btnUpdateSalesDetail.Name = "btnUpdateSalesDetail";
-            btnUpdateSalesDetail.Size = new Size(115, 35);
-            btnUpdateSalesDetail.TabIndex = 34;
-            btnUpdateSalesDetail.Text = "Update";
-            btnUpdateSalesDetail.UseVisualStyleBackColor = true;
-            // 
-            // btnAddSalesDetail
-            // 
-            btnAddSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAddSalesDetail.Location = new Point(1054, 12);
-            btnAddSalesDetail.Name = "btnAddSalesDetail";
-            btnAddSalesDetail.Size = new Size(115, 35);
-            btnAddSalesDetail.TabIndex = 33;
-            btnAddSalesDetail.Text = "Add";
-            btnAddSalesDetail.UseVisualStyleBackColor = true;
-            // 
-            // txtQuantity
-            // 
-            txtQuantity.Location = new Point(226, 82);
-            txtQuantity.Name = "txtQuantity";
-            txtQuantity.Size = new Size(350, 31);
-            txtQuantity.TabIndex = 46;
+            btnReset.Click += btnReset_Click;
             // 
             // lblQuantity
             // 
@@ -141,12 +102,34 @@
             lblQuantity.TabIndex = 45;
             lblQuantity.Text = "Quantity";
             // 
+            // btnDeleteSalesDetail
+            // 
+            btnDeleteSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDeleteSalesDetail.Location = new Point(1054, 94);
+            btnDeleteSalesDetail.Name = "btnDeleteSalesDetail";
+            btnDeleteSalesDetail.Size = new Size(115, 35);
+            btnDeleteSalesDetail.TabIndex = 35;
+            btnDeleteSalesDetail.Text = "Delete";
+            btnDeleteSalesDetail.UseVisualStyleBackColor = true;
+            btnDeleteSalesDetail.Click += btnDeleteSalesDetail_Click;
+            // 
             // txtPrice
             // 
             txtPrice.Location = new Point(226, 45);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(350, 31);
             txtPrice.TabIndex = 44;
+            // 
+            // btnUpdateSalesDetail
+            // 
+            btnUpdateSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUpdateSalesDetail.Location = new Point(1054, 53);
+            btnUpdateSalesDetail.Name = "btnUpdateSalesDetail";
+            btnUpdateSalesDetail.Size = new Size(115, 35);
+            btnUpdateSalesDetail.TabIndex = 34;
+            btnUpdateSalesDetail.Text = "Update";
+            btnUpdateSalesDetail.UseVisualStyleBackColor = true;
+            btnUpdateSalesDetail.Click += btnUpdateSalesDetail_Click;
             // 
             // lblPrice
             // 
@@ -157,6 +140,17 @@
             lblPrice.Size = new Size(54, 25);
             lblPrice.TabIndex = 43;
             lblPrice.Text = "Price";
+            // 
+            // btnAddSalesDetail
+            // 
+            btnAddSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddSalesDetail.Location = new Point(1054, 12);
+            btnAddSalesDetail.Name = "btnAddSalesDetail";
+            btnAddSalesDetail.Size = new Size(115, 35);
+            btnAddSalesDetail.TabIndex = 33;
+            btnAddSalesDetail.Text = "Add";
+            btnAddSalesDetail.UseVisualStyleBackColor = true;
+            btnAddSalesDetail.Click += btnAddSalesDetail_Click;
             // 
             // lblBookId
             // 
@@ -175,6 +169,18 @@
             cmbBookId.Name = "cmbBookId";
             cmbBookId.Size = new Size(350, 33);
             cmbBookId.TabIndex = 41;
+            cmbBookId.SelectedIndexChanged += cmbBookId_SelectedIndexChanged;
+            // 
+            // dgvSalesDetails
+            // 
+            dgvSalesDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSalesDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSalesDetails.Location = new Point(3, 3);
+            dgvSalesDetails.Name = "dgvSalesDetails";
+            dgvSalesDetails.RowHeadersWidth = 62;
+            dgvSalesDetails.Size = new Size(1175, 434);
+            dgvSalesDetails.TabIndex = 30;
+            dgvSalesDetails.CellClick += dgvSalesDetails_CellClick;
             // 
             // ManageSalesDetailsForm
             // 

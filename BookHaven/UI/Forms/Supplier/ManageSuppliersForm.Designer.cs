@@ -99,6 +99,7 @@
             btnReset.TabIndex = 40;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
             // 
             // txtAddress
             // 
@@ -116,6 +117,7 @@
             btnDeleteSupplier.TabIndex = 39;
             btnDeleteSupplier.Text = "Delete";
             btnDeleteSupplier.UseVisualStyleBackColor = true;
+            btnDeleteSupplier.Click += btnDeleteSupplier_Click;
             // 
             // lblName
             // 
@@ -136,6 +138,7 @@
             btnUpdateSupplier.TabIndex = 38;
             btnUpdateSupplier.Text = "Update";
             btnUpdateSupplier.UseVisualStyleBackColor = true;
+            btnUpdateSupplier.Click += btnUpdateSupplier_Click;
             // 
             // lblAddress
             // 
@@ -156,6 +159,7 @@
             btnAddSupplier.TabIndex = 37;
             btnAddSupplier.Text = "Add";
             btnAddSupplier.UseVisualStyleBackColor = true;
+            btnAddSupplier.Click += btnAddSupplier_Click;
             // 
             // lblContactPerson
             // 
@@ -218,6 +222,7 @@
             dgvSuppliers.RowHeadersWidth = 62;
             dgvSuppliers.Size = new Size(1172, 434);
             dgvSuppliers.TabIndex = 28;
+            dgvSuppliers.CellClick += dgvSuppliers_CellClick;
             // 
             // ManageSuppliersForm
             // 
