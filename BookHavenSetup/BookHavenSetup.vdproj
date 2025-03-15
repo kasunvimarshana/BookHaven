@@ -21,13 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6BE8BBA1DA6B4365B9BCDDDA0EAACE26"
+        "MsmKey" = "8:_A30B903BAF614269A966CB6288DBBF57"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A30B903BAF614269A966CB6288DBBF57"
+        "MsmKey" = "8:_BAABBE0F87D14B9B9BD6AD30E03BCE49"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -61,6 +61,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -77,6 +93,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -94,6 +118,16 @@
         {
             "LaunchCondition"
             {
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_265BD9204B564AB4BC616E7EA392BABA"
+                {
+                "Name" = "8:.NET Core"
+                "Message" = "8:[VSDNETCOREMSG]"
+                "AllowLaterVersions" = "11:FALSE"
+                "InstallUrl" = "8:https://dotnet.microsoft.com/download/dotnet-core/[NetCoreVerMajorDotMinor]"
+                "IsNETCore" = "11:TRUE"
+                "Architecture" = "2:0"
+                "Runtime" = "2:0"
+                }
             }
         }
         "File"
@@ -235,7 +269,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BookHavenSetup"
         "ProductCode" = "8:{F5A468C2-ED82-4AE2-A685-77534EA96881}"
-        "PackageCode" = "8:{0F1E0BC2-3816-4104-BA69-2CBE6C24A35F}"
+        "PackageCode" = "8:{9808ED4C-5B81-44D8-A631-7A6B28F387F8}"
         "UpgradeCode" = "8:{2B7F2336-01BF-48E6-9669-29D6D37326C9}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -355,7 +389,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_56CFA40731094C68B7BF397CEC320C9C"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_28BC1B2CE42C4772B01578F8DA054655"
             {
             "Name" = "8:BookHaven"
             "Arguments" = "8:"
@@ -363,13 +397,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_6BE8BBA1DA6B4365B9BCDDDA0EAACE26"
-            "Folder" = "8:_A6508811CDED4D5BA502E705C6A2D637"
+            "Target" = "8:_BAABBE0F87D14B9B9BD6AD30E03BCE49"
+            "Folder" = "8:_2F72D44EF10248F49F1B2B356F9B65D6"
             "WorkingFolder" = "8:_CF389722795E46F7BB6A9207249E2DEB"
             "Icon" = "8:_DF8436D7721246C9948F5BDA19986A02"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_69B0B3789AC34F40A606314F686F3A84"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5D866F673EBB4BF685C3B8E3144250EF"
             {
             "Name" = "8:BookHaven"
             "Arguments" = "8:"
@@ -377,8 +411,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_6BE8BBA1DA6B4365B9BCDDDA0EAACE26"
-            "Folder" = "8:_2F72D44EF10248F49F1B2B356F9B65D6"
+            "Target" = "8:_BAABBE0F87D14B9B9BD6AD30E03BCE49"
+            "Folder" = "8:_A6508811CDED4D5BA502E705C6A2D637"
             "WorkingFolder" = "8:_CF389722795E46F7BB6A9207249E2DEB"
             "Icon" = "8:_DF8436D7721246C9948F5BDA19986A02"
             "Feature" = "8:"
@@ -782,9 +816,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6BE8BBA1DA6B4365B9BCDDDA0EAACE26"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BAABBE0F87D14B9B9BD6AD30E03BCE49"
             {
-            "SourcePath" = "8:..\\BookHaven\\obj\\Debug\\net8.0-windows\\BookHaven.dll"
+            "SourcePath" = "8:..\\BookHaven\\obj\\Debug\\net8.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_CF389722795E46F7BB6A9207249E2DEB"
@@ -803,7 +837,7 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
+            "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
