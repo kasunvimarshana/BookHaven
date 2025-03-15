@@ -107,11 +107,11 @@ Stores customer orders.
 -- Orders table: Stores customer orders
 CREATE TABLE Orders (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    CustomerId INT NOT NULL,
+    SupplierId INT NOT NULL,
     OrderDate DATETIME DEFAULT GETDATE(),
     TotalAmount DECIMAL(10,2) NOT NULL DEFAULT 0,
     OrderStatus NVARCHAR(20) CHECK (OrderStatus IN ('Pending', 'Processing', 'Completed', 'Cancelled')) NOT NULL DEFAULT 'Pending',
-    FOREIGN KEY (CustomerId) REFERENCES Customers(Id) ON DELETE CASCADE
+    FOREIGN KEY (SupplierId) REFERENCES Suppliers(Id) ON DELETE CASCADE
 );
 ```
 
