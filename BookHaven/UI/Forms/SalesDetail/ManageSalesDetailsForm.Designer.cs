@@ -28,61 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtQuantity = new TextBox();
-            lblQuantity = new Label();
-            txtPrice = new TextBox();
-            lblPrice = new Label();
-            panel1 = new Panel();
+            splitContainer1 = new SplitContainer();
             dgvSalesDetails = new DataGridView();
             btnReset = new Button();
             btnDeleteSalesDetail = new Button();
             btnUpdateSalesDetail = new Button();
             btnAddSalesDetail = new Button();
+            txtQuantity = new TextBox();
+            lblQuantity = new Label();
+            txtPrice = new TextBox();
+            lblPrice = new Label();
             lblBookId = new Label();
             cmbBookId = new ComboBox();
-            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSalesDetails).BeginInit();
             SuspendLayout();
             // 
-            // txtQuantity
+            // splitContainer1
             // 
-            txtQuantity.Location = new Point(152, 118);
-            txtQuantity.Name = "txtQuantity";
-            txtQuantity.Size = new Size(241, 31);
-            txtQuantity.TabIndex = 29;
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
             // 
-            // lblQuantity
+            // splitContainer1.Panel1
             // 
-            lblQuantity.AutoSize = true;
-            lblQuantity.Location = new Point(14, 121);
-            lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new Size(80, 25);
-            lblQuantity.TabIndex = 28;
-            lblQuantity.Text = "Quantity";
+            splitContainer1.Panel1.Controls.Add(txtQuantity);
+            splitContainer1.Panel1.Controls.Add(btnReset);
+            splitContainer1.Panel1.Controls.Add(lblQuantity);
+            splitContainer1.Panel1.Controls.Add(btnDeleteSalesDetail);
+            splitContainer1.Panel1.Controls.Add(txtPrice);
+            splitContainer1.Panel1.Controls.Add(btnUpdateSalesDetail);
+            splitContainer1.Panel1.Controls.Add(lblPrice);
+            splitContainer1.Panel1.Controls.Add(btnAddSalesDetail);
+            splitContainer1.Panel1.Controls.Add(lblBookId);
+            splitContainer1.Panel1.Controls.Add(cmbBookId);
             // 
-            // txtPrice
+            // splitContainer1.Panel2
             // 
-            txtPrice.Location = new Point(152, 66);
-            txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(241, 31);
-            txtPrice.TabIndex = 27;
-            // 
-            // lblPrice
-            // 
-            lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(14, 69);
-            lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(49, 25);
-            lblPrice.TabIndex = 26;
-            lblPrice.Text = "Price";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(dgvSalesDetails);
-            panel1.Location = new Point(14, 182);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1224, 412);
-            panel1.TabIndex = 25;
+            splitContainer1.Panel2.Controls.Add(dgvSalesDetails);
+            splitContainer1.Size = new Size(1178, 694);
+            splitContainer1.SplitterDistance = 250;
+            splitContainer1.TabIndex = 0;
             // 
             // dgvSalesDetails
             // 
@@ -91,106 +81,132 @@
             dgvSalesDetails.Location = new Point(3, 3);
             dgvSalesDetails.Name = "dgvSalesDetails";
             dgvSalesDetails.RowHeadersWidth = 62;
-            dgvSalesDetails.Size = new Size(1218, 406);
-            dgvSalesDetails.TabIndex = 0;
-            dgvSalesDetails.CellClick += dgvSalesDetails_CellClick;
+            dgvSalesDetails.Size = new Size(1175, 434);
+            dgvSalesDetails.TabIndex = 30;
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(902, 5);
+            btnReset.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReset.Location = new Point(1054, 135);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(112, 34);
-            btnReset.TabIndex = 24;
+            btnReset.Size = new Size(115, 35);
+            btnReset.TabIndex = 36;
             btnReset.Text = "Reset";
             btnReset.UseVisualStyleBackColor = true;
-            btnReset.Click += btnReset_Click;
             // 
             // btnDeleteSalesDetail
             // 
-            btnDeleteSalesDetail.Location = new Point(784, 5);
+            btnDeleteSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDeleteSalesDetail.Location = new Point(1054, 94);
             btnDeleteSalesDetail.Name = "btnDeleteSalesDetail";
-            btnDeleteSalesDetail.Size = new Size(112, 34);
-            btnDeleteSalesDetail.TabIndex = 23;
+            btnDeleteSalesDetail.Size = new Size(115, 35);
+            btnDeleteSalesDetail.TabIndex = 35;
             btnDeleteSalesDetail.Text = "Delete";
             btnDeleteSalesDetail.UseVisualStyleBackColor = true;
-            btnDeleteSalesDetail.Click += btnDeleteSalesDetail_Click;
             // 
             // btnUpdateSalesDetail
             // 
-            btnUpdateSalesDetail.Location = new Point(666, 5);
+            btnUpdateSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUpdateSalesDetail.Location = new Point(1054, 53);
             btnUpdateSalesDetail.Name = "btnUpdateSalesDetail";
-            btnUpdateSalesDetail.Size = new Size(112, 34);
-            btnUpdateSalesDetail.TabIndex = 22;
+            btnUpdateSalesDetail.Size = new Size(115, 35);
+            btnUpdateSalesDetail.TabIndex = 34;
             btnUpdateSalesDetail.Text = "Update";
             btnUpdateSalesDetail.UseVisualStyleBackColor = true;
-            btnUpdateSalesDetail.Click += btnUpdateSalesDetail_Click;
             // 
             // btnAddSalesDetail
             // 
-            btnAddSalesDetail.Location = new Point(548, 5);
+            btnAddSalesDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddSalesDetail.Location = new Point(1054, 12);
             btnAddSalesDetail.Name = "btnAddSalesDetail";
-            btnAddSalesDetail.Size = new Size(112, 34);
-            btnAddSalesDetail.TabIndex = 21;
+            btnAddSalesDetail.Size = new Size(115, 35);
+            btnAddSalesDetail.TabIndex = 33;
             btnAddSalesDetail.Text = "Add";
             btnAddSalesDetail.UseVisualStyleBackColor = true;
-            btnAddSalesDetail.Click += btnAddSalesDetail_Click;
+            // 
+            // txtQuantity
+            // 
+            txtQuantity.Location = new Point(226, 82);
+            txtQuantity.Name = "txtQuantity";
+            txtQuantity.Size = new Size(350, 31);
+            txtQuantity.TabIndex = 46;
+            // 
+            // lblQuantity
+            // 
+            lblQuantity.AutoSize = true;
+            lblQuantity.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblQuantity.Location = new Point(12, 85);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(87, 25);
+            lblQuantity.TabIndex = 45;
+            lblQuantity.Text = "Quantity";
+            // 
+            // txtPrice
+            // 
+            txtPrice.Location = new Point(226, 45);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(350, 31);
+            txtPrice.TabIndex = 44;
+            // 
+            // lblPrice
+            // 
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPrice.Location = new Point(12, 48);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(54, 25);
+            lblPrice.TabIndex = 43;
+            lblPrice.Text = "Price";
             // 
             // lblBookId
             // 
             lblBookId.AutoSize = true;
-            lblBookId.Location = new Point(14, 10);
+            lblBookId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblBookId.Location = new Point(12, 9);
             lblBookId.Name = "lblBookId";
-            lblBookId.Size = new Size(53, 25);
-            lblBookId.TabIndex = 20;
+            lblBookId.Size = new Size(56, 25);
+            lblBookId.TabIndex = 42;
             lblBookId.Text = "Book";
             // 
             // cmbBookId
             // 
             cmbBookId.FormattingEnabled = true;
-            cmbBookId.Location = new Point(152, 7);
+            cmbBookId.Location = new Point(226, 6);
             cmbBookId.Name = "cmbBookId";
-            cmbBookId.Size = new Size(241, 33);
-            cmbBookId.TabIndex = 19;
-            cmbBookId.SelectedIndexChanged += cmbBookId_SelectedIndexChanged;
+            cmbBookId.Size = new Size(350, 33);
+            cmbBookId.TabIndex = 41;
             // 
             // ManageSalesDetailsForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1251, 612);
-            Controls.Add(txtQuantity);
-            Controls.Add(lblQuantity);
-            Controls.Add(txtPrice);
-            Controls.Add(lblPrice);
-            Controls.Add(panel1);
-            Controls.Add(btnReset);
-            Controls.Add(btnDeleteSalesDetail);
-            Controls.Add(btnUpdateSalesDetail);
-            Controls.Add(btnAddSalesDetail);
-            Controls.Add(lblBookId);
-            Controls.Add(cmbBookId);
+            ClientSize = new Size(1178, 694);
+            Controls.Add(splitContainer1);
             Name = "ManageSalesDetailsForm";
             Text = "ManageSalesDetailsForm";
             Load += ManageSalesDetailsForm_Load;
-            panel1.ResumeLayout(false);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvSalesDetails).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
+        private SplitContainer splitContainer1;
         private TextBox txtQuantity;
         private Label lblQuantity;
         private TextBox txtPrice;
         private Label lblPrice;
-        private Panel panel1;
+        private Label lblBookId;
+        private ComboBox cmbBookId;
         private DataGridView dgvSalesDetails;
         private Button btnReset;
         private Button btnDeleteSalesDetail;
         private Button btnUpdateSalesDetail;
         private Button btnAddSalesDetail;
-        private Label lblBookId;
-        private ComboBox cmbBookId;
     }
 }
