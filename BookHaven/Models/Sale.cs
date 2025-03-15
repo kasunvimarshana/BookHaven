@@ -14,15 +14,15 @@ namespace BookHaven.Models
         public int Id { get; set; }
 
         [Required]
-        public int CustomerID { get; set; }
+        public int CustomerId { get; set; }
 
-        [ForeignKey("CustomerID")]
+        [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
 
         [Required]
-        public int UserID { get; set; }
+        public int UserId { get; set; }
 
-        [ForeignKey("UserID")]
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
         [Required, Column(TypeName = "decimal(10,2)")]
@@ -32,5 +32,7 @@ namespace BookHaven.Models
         public decimal Discount { get; set; } = 0;
 
         public DateTime SaleDate { get; set; } = DateTime.Now;
+
+        public List<SalesDetail> SalesDetails { get; set; }
     }
 }
