@@ -22,6 +22,7 @@ namespace BookHaven.UI.Forms.Order
         private readonly OrderService _orderService;
         private readonly SupplierService _supplierService;
         private readonly OrderReportService _orderReportService;
+        private readonly OrderDetailReportService _orderDetailReportService;
         private Models.Order? _selectedOrder;
         private bool _isUpdateMode = false; // Flag to track update mode
 
@@ -31,6 +32,7 @@ namespace BookHaven.UI.Forms.Order
             _orderService = new OrderService();
             _supplierService = new SupplierService();
             _orderReportService = new OrderReportService();
+            _orderDetailReportService = new OrderDetailReportService();
             InitializeLayout();
         }
 
@@ -69,6 +71,7 @@ namespace BookHaven.UI.Forms.Order
             btnUpdateOrder.Visible = isUpdateMode;
             btnDeleteOrder.Visible = isUpdateMode;
             btnOrderDetails.Visible = isUpdateMode;
+            btnGenerateDetailReport.Visible = isUpdateMode;
         }
 
         private void LoadOrders()
@@ -315,6 +318,22 @@ namespace BookHaven.UI.Forms.Order
             try
             {
                 string reportPath = _orderReportService.GenerateTextReport();
+                MessageBox.Show($"Report generated successfully!\n\nSaved at:\n{reportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Open the text file automatically
+                Process.Start(new ProcessStartInfo(reportPath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to generate report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGenerateDetailReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reportPath = _orderDetailReportService.GenerateTextReport(_selectedOrder.Id);
                 MessageBox.Show($"Report generated successfully!\n\nSaved at:\n{reportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Open the text file automatically

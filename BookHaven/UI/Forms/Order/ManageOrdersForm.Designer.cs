@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnGenerateReport = new Button();
             btnOrderDetails = new Button();
             cmbSupplierId = new ComboBox();
             btnReset = new Button();
@@ -37,7 +38,7 @@
             btnAddOrder = new Button();
             btnUpdateOrder = new Button();
             dgvOrders = new DataGridView();
-            btnGenerateReport = new Button();
+            btnGenerateDetailReport = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(btnGenerateDetailReport);
             splitContainer1.Panel1.Controls.Add(btnGenerateReport);
             splitContainer1.Panel1.Controls.Add(btnOrderDetails);
             splitContainer1.Panel1.Controls.Add(cmbSupplierId);
@@ -69,6 +71,17 @@
             splitContainer1.Size = new Size(1178, 694);
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateReport.Location = new Point(933, 12);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(115, 35);
+            btnGenerateReport.TabIndex = 16;
+            btnGenerateReport.Text = "Report";
+            btnGenerateReport.UseVisualStyleBackColor = true;
+            btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // btnOrderDetails
             // 
@@ -154,16 +167,16 @@
             dgvOrders.TabIndex = 8;
             dgvOrders.CellClick += dgvOrders_CellClick;
             // 
-            // btnGenerateReport
+            // btnGenerateDetailReport
             // 
-            btnGenerateReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnGenerateReport.Location = new Point(933, 12);
-            btnGenerateReport.Name = "btnGenerateReport";
-            btnGenerateReport.Size = new Size(115, 35);
-            btnGenerateReport.TabIndex = 16;
-            btnGenerateReport.Text = "Report";
-            btnGenerateReport.UseVisualStyleBackColor = true;
-            btnGenerateReport.Click += btnGenerateReport_Click;
+            btnGenerateDetailReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateDetailReport.Location = new Point(933, 53);
+            btnGenerateDetailReport.Name = "btnGenerateDetailReport";
+            btnGenerateDetailReport.Size = new Size(115, 35);
+            btnGenerateDetailReport.TabIndex = 17;
+            btnGenerateDetailReport.Text = "Detail Report";
+            btnGenerateDetailReport.UseVisualStyleBackColor = true;
+            btnGenerateDetailReport.Click += btnGenerateDetailReport_Click;
             // 
             // ManageOrdersForm
             // 
@@ -195,5 +208,6 @@
         private Button btnUpdateOrder;
         private DataGridView dgvOrders;
         private Button btnGenerateReport;
+        private Button btnGenerateDetailReport;
     }
 }
