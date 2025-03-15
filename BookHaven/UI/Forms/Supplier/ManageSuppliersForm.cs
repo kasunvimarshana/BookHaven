@@ -288,5 +288,15 @@ namespace BookHaven.UI.Forms.Supplier
         {
             ResetForm();
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
