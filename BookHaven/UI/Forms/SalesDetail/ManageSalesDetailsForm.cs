@@ -35,6 +35,7 @@ namespace BookHaven.UI.Forms.SalesDetail
             _salesService = new SalesService();
             _bookService = new BookService();
             InitializeLayout();
+            _saleId = saleId;
         }
 
         private void ManageSalesDetailsForm_Load(object sender, EventArgs e)
@@ -233,7 +234,7 @@ namespace BookHaven.UI.Forms.SalesDetail
         private bool TryGetSalesDetailInput(out Models.SalesDetail salesDetail, out string errorMessage)
         {
             int id = _selectedSalesDetail?.Id ?? 0;
-            int saleId = _selectedSalesDetail?.SaleId ?? _selectedSale.Id;
+            int saleId = _selectedSale?.Id ?? 0;
             int bookId = Convert.ToInt32(cmbBookId.SelectedValue);
             int quantity = Convert.ToInt32(txtQuantity.Text);
             decimal price = Convert.ToDecimal(txtPrice.Text);
@@ -331,6 +332,5 @@ namespace BookHaven.UI.Forms.SalesDetail
             Models.Book? book = cmbBookId.SelectedItem as Models.Book;
             txtPrice.Text = (book != null) ? book?.Price.ToString() : string.Empty;
         }
-        //
     }
 }
