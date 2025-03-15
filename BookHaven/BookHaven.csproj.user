@@ -13,6 +13,18 @@
     <Compile Update="UI\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UI\Forms\OrderDetail\ManageOrderDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Forms\Order\ManageOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Forms\SalesDetail\ManageSalesDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UI\Forms\Sale\ManageSalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UI\Forms\Supplier\ManageSuppliersForm.cs">
       <SubType>Form</SubType>
     </Compile>
