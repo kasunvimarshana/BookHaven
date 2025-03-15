@@ -245,7 +245,43 @@ namespace BookHaven.BLL
         }
 
         public bool DeleteOrderDetail(int id, SqlTransaction transaction = null)
-            => _orderDetailRepo.DeleteOrderDetail(id, transaction);
+        {
+            // Fetch existing order detail
+            OrderDetail? orderDetail = _orderDetailRepo.GetOrderDetailById(id);
+            if (orderDetail == null)
+            {
+                throw new InvalidOperationException("Order detail not found.");
+            }
+
+            // Fetch related order and book
+            Order? order = _orderRepo.GetOrderById(orderDetail.OrderId);
+            Book? book = _bookRepo.GetBookById(orderDetail.BookId);
+            if (order == null || book == null)
+            {
+                throw new InvalidOperationException("Order or Book not found.");
+            }
+
+            // Restore stock quantity
+            book.StockQuantity -= orderDetail.Quantity;
+            _bookRepo.UpdateBook(book, transaction);
+
+            // Delete order detail
+            bool isDeleted = _orderDetailRepo.DeleteOrderDetail(id, transaction);
+            if (!isDeleted)
+            {
+                throw new InvalidOperationException("Failed to delete order detail.");
+            }
+
+            // Recalculate total amount for order
+            List<OrderDetail> orderDetails = _orderDetailRepo.GetOrderDetailsByOrderId(orderDetail.OrderId);
+            order.TotalAmount = orderDetails.Sum(od => od.Quantity * od.Price);
+
+            // Update book stock and order records
+            _orderRepo.UpdateOrder(order, transaction);
+            _bookRepo.UpdateBook(book, transaction);
+
+            return true;
+        }
 
         public List<OrderDetail> GetOrderDetailsByOrderId(int orderId) 
             => _orderDetailRepo.GetOrderDetailsByOrderId(orderId);
