@@ -82,7 +82,7 @@ namespace BookHaven.UI.Forms.SalesDetail
         {
             try
             {
-                List<Models.SalesDetail> salesDetails = _salesDetailService.GetAllSalesDetails();
+                List<Models.SalesDetail> salesDetails = _salesDetailService.GetSalesDetailBySaleId(_saleId);
                 dgvSalesDetails.DataSource = salesDetails;
 
                 ConfigureDataGridView();
