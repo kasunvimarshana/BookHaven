@@ -14,15 +14,15 @@ namespace BookHaven.Models
         public int Id { get; set; }
 
         [Required]
-        public int SaleID { get; set; }
+        public int SaleId { get; set; }
 
-        [ForeignKey("SaleID")]
+        [ForeignKey("SaleId")]
         public virtual Sale Sale { get; set; }
 
         [Required]
-        public int BookID { get; set; }
+        public int BookId { get; set; }
 
-        [ForeignKey("BookID")]
+        [ForeignKey("BookId")]
         public virtual Book Book { get; set; }
 
         [Required]
