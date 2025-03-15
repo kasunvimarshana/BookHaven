@@ -81,7 +81,7 @@ namespace BookHaven.UI.Forms.OrderDetail
         {
             try
             {
-                List<Models.OrderDetail> orderDetails = _orderDetailService.GetAllOrderDetails();
+                List<Models.OrderDetail> orderDetails = _orderDetailService.GetOrderDetailsByOrderId(_orderId);
                 dgvOrderDetails.DataSource = orderDetails;
 
                 ConfigureDataGridView();
