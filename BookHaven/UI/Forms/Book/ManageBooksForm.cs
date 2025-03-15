@@ -84,6 +84,14 @@ namespace BookHaven.UI.Forms.Book
             {
                 dgvBooks.Columns["CreatedAt"].DefaultCellStyle.Format = "d";
             }
+            if (dgvBooks.Columns.Contains("SupplierId"))
+            {
+                dgvBooks.Columns["SupplierId"].Visible = false;
+            }
+            if (dgvBooks.Columns.Contains("Supplier"))
+            {
+                dgvBooks.Columns["Supplier"].Visible = false;
+            }
 
             dgvBooks.ClearSelection();
         }
