@@ -18,7 +18,7 @@ namespace BookHaven.UI.Forms.Order
     public partial class ManageOrdersForm : Form
     {
         private readonly OrderService _orderService;
-        private readonly CustomerService _customerService;
+        private readonly SupplierService _supplierService;
         private Models.Order? _selectedOrder;
         private bool _isUpdateMode = false; // Flag to track update mode
 
@@ -26,14 +26,14 @@ namespace BookHaven.UI.Forms.Order
         {
             InitializeComponent();
             _orderService = new OrderService();
-            _customerService = new CustomerService();
+            _supplierService = new SupplierService();
             InitializeLayout();
         }
 
         private void ManageOrdersForm_Load(object sender, EventArgs e)
         {
             LoadOrders();
-            InitializeCustomerIdComboBox();
+            InitializeSupplierIdComboBox();
             ResetForm();
             // BindOrderToControls();
         }
@@ -43,17 +43,17 @@ namespace BookHaven.UI.Forms.Order
             dgvOrders.Dock = DockStyle.Fill; // Make the DataGridView fill the available space
         }
 
-        private void InitializeCustomerIdComboBox()
+        private void InitializeSupplierIdComboBox()
         {
-            List<Models.Customer> customers = _customerService.GetAllCustomers();
-            cmbCustomerId.DataSource = customers;
-            cmbCustomerId.DisplayMember = "FullName";
-            cmbCustomerId.ValueMember = "Id";
+            List<Models.Supplier> suppliers = _supplierService.GetAllSuppliers();
+            cmbSupplierId.DataSource = suppliers;
+            cmbSupplierId.DisplayMember = "Name";
+            cmbSupplierId.ValueMember = "Id";
         }
 
         private void ResetForm()
         {
-            cmbCustomerId.SelectedIndex = -1;
+            cmbSupplierId.SelectedIndex = -1;
             _selectedOrder = null;
             _isUpdateMode = false; // Reset update mode flag when clearing fields
             ToggleButtons(isUpdateMode: false);
@@ -87,26 +87,26 @@ namespace BookHaven.UI.Forms.Order
             {
                 dgvOrders.Columns["OrderDate"].DefaultCellStyle.Format = "d";
             }
-            if (dgvOrders.Columns.Contains("CustomerId"))
+            if (dgvOrders.Columns.Contains("SupplierId"))
             {
-                dgvOrders.Columns["CustomerId"].Visible = false;
+                dgvOrders.Columns["SupplierId"].Visible = false;
             }
-            if (dgvOrders.Columns.Contains("Customer"))
+            if (dgvOrders.Columns.Contains("Supplier"))
             {
-                dgvOrders.Columns["Customer"].Visible = false;
+                dgvOrders.Columns["Supplier"].Visible = false;
             }
-            if (!dgvOrders.Columns.Contains("CustomerFullName"))
+            if (!dgvOrders.Columns.Contains("SupplierName"))
             {
-                dgvOrders.Columns.Add("CustomerFullName", "Customer");
+                dgvOrders.Columns.Add("SupplierName", "Supplier");
             }
 
             foreach (DataGridViewRow row in dgvOrders.Rows)
             {
-                if (row.Cells["CustomerId"].Value != null)
+                if (row.Cells["SupplierId"].Value != null)
                 {
-                    int customerId = Convert.ToInt32(row.Cells["CustomerId"].Value);
-                    Models.Customer? customer = _customerService.GetCustomerById(customerId);
-                    row.Cells["CustomerFullName"].Value = customer?.FullName ?? "NA";
+                    int supplierId = Convert.ToInt32(row.Cells["SupplierId"].Value);
+                    Models.Supplier? supplier = _supplierService.GetSupplierById(supplierId);
+                    row.Cells["SupplierName"].Value = supplier?.Name ?? "NA";
                 }
             }
 
@@ -121,9 +121,9 @@ namespace BookHaven.UI.Forms.Order
             }
 
             // Data binding for the controls
-            cmbCustomerId.DataBindings.Clear();
+            cmbSupplierId.DataBindings.Clear();
 
-            cmbCustomerId.DataBindings.Add("SelectedValue", _selectedOrder, "CustomerId", true, DataSourceUpdateMode.OnPropertyChanged);
+            cmbSupplierId.DataBindings.Add("SelectedValue", _selectedOrder, "SupplierId", true, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void dgvOrders_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,7 +144,7 @@ namespace BookHaven.UI.Forms.Order
             return new Models.Order
             {
                 Id = Convert.ToInt32(dgvOrders.Rows[rowIndex].Cells["Id"].Value),
-                CustomerId = Convert.ToInt32(dgvOrders.Rows[rowIndex].Cells["CustomerId"].Value),
+                SupplierId = Convert.ToInt32(dgvOrders.Rows[rowIndex].Cells["SupplierId"].Value),
                 OrderDate = Convert.ToDateTime(dgvOrders.Rows[rowIndex].Cells["OrderDate"].Value),
                 TotalAmount = Convert.ToDecimal(dgvOrders.Rows[rowIndex].Cells["TotalAmount"].Value),
                 OrderStatus = Enum.TryParse(
@@ -199,7 +199,7 @@ namespace BookHaven.UI.Forms.Order
         private bool TryGetOrderInput(out Models.Order order, out string errorMessage)
         {
             int id = _selectedOrder?.Id ?? 0;
-            int customerId = Convert.ToInt32(cmbCustomerId.SelectedValue);
+            int supplierId = Convert.ToInt32(cmbSupplierId.SelectedValue);
             DateTime orderDate = _selectedOrder?.OrderDate ?? DateTime.Now;
             decimal totalAmount = _selectedOrder?.TotalAmount ?? 0;
             OrderStatus orderStatus = _selectedOrder?.OrderStatus ?? OrderStatus.Pending;
@@ -207,7 +207,7 @@ namespace BookHaven.UI.Forms.Order
             order = new Models.Order
             {
                 Id = id,
-                CustomerId = customerId,
+                SupplierId = supplierId,
                 OrderDate = orderDate,
                 TotalAmount = totalAmount,
                 OrderStatus = orderStatus

@@ -21,12 +21,12 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        INSERT INTO Orders (CustomerId, TotalAmount, OrderStatus, OrderDate) 
+                        INSERT INTO Orders (SupplierId, TotalAmount, OrderStatus, OrderDate) 
                         OUTPUT INSERTED.Id
-                        VALUES (@CustomerId, @TotalAmount, @OrderStatus, @OrderDate)";
+                        VALUES (@SupplierId, @TotalAmount, @OrderStatus, @OrderDate)";
 
                 SqlParameter[] parameters = {
-                    new SqlParameter("@CustomerId", SqlDbType.Int) { Value = order.CustomerId },
+                    new SqlParameter("@SupplierId", SqlDbType.Int) { Value = order.SupplierId },
                     new SqlParameter("@TotalAmount", SqlDbType.Decimal) { Value = order.TotalAmount },
                     new SqlParameter("@OrderStatus", SqlDbType.NVarChar) { Value = order.OrderStatus.ToString() },
                     new SqlParameter("@OrderDate", SqlDbType.DateTime) { Value = order.OrderDate }
@@ -48,12 +48,12 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        UPDATE Orders SET CustomerId = @CustomerId, TotalAmount = @TotalAmount, OrderStatus = @OrderStatus WHERE Id = @Id";
+                        UPDATE Orders SET SupplierId = @SupplierId, TotalAmount = @TotalAmount, OrderStatus = @OrderStatus WHERE Id = @Id";
 
                 List<SqlParameter> parameters = new List<SqlParameter>
                 {
                     new SqlParameter("@Id", SqlDbType.Int) { Value = order.Id },
-                    new SqlParameter("@CustomerId", SqlDbType.Int) { Value = order.CustomerId },
+                    new SqlParameter("@SupplierId", SqlDbType.Int) { Value = order.SupplierId },
                     new SqlParameter("@TotalAmount", SqlDbType.Decimal) { Value = order.TotalAmount },
                     new SqlParameter("@OrderStatus", SqlDbType.NVarChar) { Value = order.OrderStatus.ToString() }
                 };
@@ -89,8 +89,8 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        SELECT o.Id as Id, o.CustomerId as CustomerId, o.TotalAmount as TotalAmount, o.OrderStatus as OrderStatus, o.OrderDate as OrderDate FROM Orders as o
-                        JOIN Customers as c ON o.CustomerId = c.Id";
+                        SELECT o.Id as Id, o.SupplierId as SupplierId, o.TotalAmount as TotalAmount, o.OrderStatus as OrderStatus, o.OrderDate as OrderDate FROM Orders as o
+                        JOIN Suppliers as s ON o.SupplierId = s.Id";
                 
                 DataTable dt = _dbHelper.ExecuteQuery(query, new SqlParameter[] { });
 
@@ -118,8 +118,8 @@ namespace BookHaven.DAL
             try
             {
                 string query = @"
-                        SELECT o.Id as Id, o.CustomerId as CustomerId, o.TotalAmount as TotalAmount, o.OrderStatus as OrderStatus, o.OrderDate as OrderDate FROM Orders as o
-                        JOIN Customers as c ON o.CustomerId = c.Id
+                        SELECT o.Id as Id, o.SupplierId as SupplierId, o.TotalAmount as TotalAmount, o.OrderStatus as OrderStatus, o.OrderDate as OrderDate FROM Orders as o
+                        JOIN Suppliers as s ON o.SupplierId = s.Id
                         WHERE o.Id = @Id";
 
                 SqlParameter[] parameters = {
@@ -147,7 +147,7 @@ namespace BookHaven.DAL
             return new Order
             {
                 Id = Convert.ToInt32(row["Id"]),
-                CustomerId = Convert.ToInt32(row["CustomerId"]),
+                SupplierId = Convert.ToInt32(row["SupplierId"]),
                 TotalAmount = Convert.ToDecimal(row["TotalAmount"]),
                 OrderStatus = Enum.TryParse(
                     row["OrderStatus"].ToString(),

@@ -11,9 +11,9 @@ namespace BookHaven.Models
     {
         public int Id { get; set; }
 
-        public int CustomerId { get; set; }
+        public int SupplierId { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public virtual Supplier Supplier { get; set; }
 
         public DateTime OrderDate { get; set; } = DateTime.Now;
 

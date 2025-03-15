@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cmbCustomerId = new ComboBox();
-            lblCustomeId = new Label();
+            cmbSupplierId = new ComboBox();
+            lblSupplierId = new Label();
             btnAddOrder = new Button();
             btnUpdateOrder = new Button();
             btnDeleteOrder = new Button();
@@ -41,22 +41,22 @@
             ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
             // 
-            // cmbCustomerId
+            // cmbSupplierId
             // 
-            cmbCustomerId.FormattingEnabled = true;
-            cmbCustomerId.Location = new Point(134, 6);
-            cmbCustomerId.Name = "cmbCustomerId";
-            cmbCustomerId.Size = new Size(241, 33);
-            cmbCustomerId.TabIndex = 0;
+            cmbSupplierId.FormattingEnabled = true;
+            cmbSupplierId.Location = new Point(134, 6);
+            cmbSupplierId.Name = "cmbSupplierId";
+            cmbSupplierId.Size = new Size(241, 33);
+            cmbSupplierId.TabIndex = 0;
             // 
-            // lblCustomeId
+            // lblSupplierId
             // 
-            lblCustomeId.AutoSize = true;
-            lblCustomeId.Location = new Point(12, 9);
-            lblCustomeId.Name = "lblCustomeId";
-            lblCustomeId.Size = new Size(89, 25);
-            lblCustomeId.TabIndex = 1;
-            lblCustomeId.Text = "Customer";
+            lblSupplierId.AutoSize = true;
+            lblSupplierId.Location = new Point(12, 9);
+            lblSupplierId.Name = "lblSupplierId";
+            lblSupplierId.Size = new Size(89, 25);
+            lblSupplierId.TabIndex = 1;
+            lblSupplierId.Text = "Customer";
             // 
             // btnAddOrder
             // 
@@ -138,8 +138,8 @@
             Controls.Add(btnDeleteOrder);
             Controls.Add(btnUpdateOrder);
             Controls.Add(btnAddOrder);
-            Controls.Add(lblCustomeId);
-            Controls.Add(cmbCustomerId);
+            Controls.Add(lblSupplierId);
+            Controls.Add(cmbSupplierId);
             Name = "ManageOrdersForm";
             Text = "ManageOrdersForm";
             Load += ManageOrdersForm_Load;
@@ -151,8 +151,8 @@
 
         #endregion
 
-        private ComboBox cmbCustomerId;
-        private Label lblCustomeId;
+        private ComboBox cmbSupplierId;
+        private Label lblSupplierId;
         private Button btnAddOrder;
         private Button btnUpdateOrder;
         private Button btnDeleteOrder;
