@@ -28,25 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvUsers = new DataGridView();
-            cmbUserRole = new ComboBox();
-            btnAddUser = new Button();
-            btnDeleteUser = new Button();
-            btnUpdateUser = new Button();
-            txtUsername = new TextBox();
-            txtPassword = new TextBox();
-            lblUsername = new Label();
-            lblPassword = new Label();
+            splitContainer1 = new SplitContainer();
             lblUserRole = new Label();
-            panel1 = new Panel();
-            txtFullName = new TextBox();
-            txtEmail = new TextBox();
-            lblFullName = new Label();
-            lblEmail = new Label();
+            lblPassword = new Label();
+            lblUsername = new Label();
             btnReset = new Button();
+            lblEmail = new Label();
+            lblFullName = new Label();
+            txtEmail = new TextBox();
+            txtFullName = new TextBox();
+            dgvUsers = new DataGridView();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
+            btnUpdateUser = new Button();
+            btnDeleteUser = new Button();
+            btnAddUser = new Button();
+            cmbUserRole = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 0);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(cmbUserRole);
+            splitContainer1.Panel1.Controls.Add(btnReset);
+            splitContainer1.Panel1.Controls.Add(btnAddUser);
+            splitContainer1.Panel1.Controls.Add(lblEmail);
+            splitContainer1.Panel1.Controls.Add(btnDeleteUser);
+            splitContainer1.Panel1.Controls.Add(lblFullName);
+            splitContainer1.Panel1.Controls.Add(btnUpdateUser);
+            splitContainer1.Panel1.Controls.Add(txtEmail);
+            splitContainer1.Panel1.Controls.Add(txtUsername);
+            splitContainer1.Panel1.Controls.Add(txtFullName);
+            splitContainer1.Panel1.Controls.Add(txtPassword);
+            splitContainer1.Panel1.Controls.Add(label1);
+            splitContainer1.Panel1.Controls.Add(label3);
+            splitContainer1.Panel1.Controls.Add(label2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(dgvUsers);
+            splitContainer1.Panel2.Controls.Add(lblUserRole);
+            splitContainer1.Panel2.Controls.Add(lblPassword);
+            splitContainer1.Panel2.Controls.Add(lblUsername);
+            splitContainer1.Size = new Size(1178, 694);
+            splitContainer1.SplitterDistance = 250;
+            splitContainer1.TabIndex = 0;
+            // 
+            // lblUserRole
+            // 
+            lblUserRole.AutoSize = true;
+            lblUserRole.Location = new Point(-102, 65);
+            lblUserRole.Name = "lblUserRole";
+            lblUserRole.Size = new Size(86, 25);
+            lblUserRole.TabIndex = 24;
+            lblUserRole.Text = "User Role";
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Location = new Point(-102, 5);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(87, 25);
+            lblPassword.TabIndex = 23;
+            lblPassword.Text = "Password";
+            // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Location = new Point(-102, -49);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(91, 25);
+            lblUsername.TabIndex = 22;
+            lblUsername.Text = "Username";
+            // 
+            // btnReset
+            // 
+            btnReset.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReset.Location = new Point(1054, 135);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(115, 35);
+            btnReset.TabIndex = 39;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = true;
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblEmail.Location = new Point(12, 46);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(58, 25);
+            lblEmail.TabIndex = 38;
+            lblEmail.Text = "Email";
+            // 
+            // lblFullName
+            // 
+            lblFullName.AutoSize = true;
+            lblFullName.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblFullName.Location = new Point(12, 9);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(97, 25);
+            lblFullName.TabIndex = 37;
+            lblFullName.Text = "Full Name";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(226, 43);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(350, 31);
+            txtEmail.TabIndex = 36;
+            // 
+            // txtFullName
+            // 
+            txtFullName.Location = new Point(226, 6);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(350, 31);
+            txtFullName.TabIndex = 35;
             // 
             // dgvUsers
             // 
@@ -55,185 +166,130 @@
             dgvUsers.Location = new Point(3, 3);
             dgvUsers.Name = "dgvUsers";
             dgvUsers.RowHeadersWidth = 62;
-            dgvUsers.Size = new Size(1377, 332);
+            dgvUsers.Size = new Size(1172, 434);
             dgvUsers.TabIndex = 0;
-            dgvUsers.CellClick += dgvUsers_CellClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.Location = new Point(12, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(93, 25);
+            label1.TabIndex = 33;
+            label1.Text = "User Role";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label2.Location = new Point(12, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 25);
+            label2.TabIndex = 32;
+            label2.Text = "Password";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label3.Location = new Point(12, 126);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 25);
+            label3.TabIndex = 31;
+            label3.Text = "Username";
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new Point(226, 167);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(350, 31);
+            txtPassword.TabIndex = 30;
+            // 
+            // txtUsername
+            // 
+            txtUsername.Location = new Point(226, 123);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(350, 31);
+            txtUsername.TabIndex = 29;
+            // 
+            // btnUpdateUser
+            // 
+            btnUpdateUser.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUpdateUser.Location = new Point(1054, 53);
+            btnUpdateUser.Name = "btnUpdateUser";
+            btnUpdateUser.Size = new Size(115, 35);
+            btnUpdateUser.TabIndex = 28;
+            btnUpdateUser.Text = "Update";
+            btnUpdateUser.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteUser
+            // 
+            btnDeleteUser.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDeleteUser.Location = new Point(1054, 94);
+            btnDeleteUser.Name = "btnDeleteUser";
+            btnDeleteUser.Size = new Size(115, 35);
+            btnDeleteUser.TabIndex = 27;
+            btnDeleteUser.Text = "Delete";
+            btnDeleteUser.UseVisualStyleBackColor = true;
+            // 
+            // btnAddUser
+            // 
+            btnAddUser.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddUser.Location = new Point(1054, 12);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(115, 35);
+            btnAddUser.TabIndex = 26;
+            btnAddUser.Text = "Add";
+            btnAddUser.UseVisualStyleBackColor = true;
             // 
             // cmbUserRole
             // 
             cmbUserRole.FormattingEnabled = true;
-            cmbUserRole.Location = new Point(166, 120);
+            cmbUserRole.Location = new Point(226, 81);
             cmbUserRole.Name = "cmbUserRole";
-            cmbUserRole.Size = new Size(182, 33);
-            cmbUserRole.TabIndex = 1;
-            // 
-            // btnAddUser
-            // 
-            btnAddUser.Location = new Point(1041, 12);
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(112, 34);
-            btnAddUser.TabIndex = 2;
-            btnAddUser.Text = "Add";
-            btnAddUser.UseVisualStyleBackColor = true;
-            btnAddUser.Click += btnAddUser_Click;
-            // 
-            // btnDeleteUser
-            // 
-            btnDeleteUser.Location = new Point(1041, 92);
-            btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(112, 34);
-            btnDeleteUser.TabIndex = 3;
-            btnDeleteUser.Text = "Delete";
-            btnDeleteUser.UseVisualStyleBackColor = true;
-            btnDeleteUser.Click += btnDeleteUser_Click;
-            // 
-            // btnUpdateUser
-            // 
-            btnUpdateUser.Location = new Point(1041, 52);
-            btnUpdateUser.Name = "btnUpdateUser";
-            btnUpdateUser.Size = new Size(112, 34);
-            btnUpdateUser.TabIndex = 4;
-            btnUpdateUser.Text = "Update";
-            btnUpdateUser.UseVisualStyleBackColor = true;
-            btnUpdateUser.Click += btnUpdateUser_Click;
-            // 
-            // txtUsername
-            // 
-            txtUsername.Location = new Point(166, 12);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(182, 31);
-            txtUsername.TabIndex = 5;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(166, 60);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(182, 31);
-            txtPassword.TabIndex = 6;
-            // 
-            // lblUsername
-            // 
-            lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(12, 9);
-            lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(91, 25);
-            lblUsername.TabIndex = 7;
-            lblUsername.Text = "Username";
-            // 
-            // lblPassword
-            // 
-            lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(12, 63);
-            lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(87, 25);
-            lblPassword.TabIndex = 8;
-            lblPassword.Text = "Password";
-            // 
-            // lblUserRole
-            // 
-            lblUserRole.AutoSize = true;
-            lblUserRole.Location = new Point(12, 123);
-            lblUserRole.Name = "lblUserRole";
-            lblUserRole.Size = new Size(86, 25);
-            lblUserRole.TabIndex = 9;
-            lblUserRole.Text = "User Role";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(dgvUsers);
-            panel1.Location = new Point(12, 209);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1383, 338);
-            panel1.TabIndex = 10;
-            // 
-            // txtFullName
-            // 
-            txtFullName.Location = new Point(600, 12);
-            txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(182, 31);
-            txtFullName.TabIndex = 11;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(600, 60);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(182, 31);
-            txtEmail.TabIndex = 12;
-            // 
-            // lblFullName
-            // 
-            lblFullName.AutoSize = true;
-            lblFullName.Location = new Point(466, 15);
-            lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(91, 25);
-            lblFullName.TabIndex = 13;
-            lblFullName.Text = "Full Name";
-            // 
-            // lblEmail
-            // 
-            lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(466, 63);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(54, 25);
-            lblEmail.TabIndex = 14;
-            lblEmail.Text = "Email";
-            // 
-            // btnReset
-            // 
-            btnReset.Location = new Point(1041, 132);
-            btnReset.Name = "btnReset";
-            btnReset.Size = new Size(112, 34);
-            btnReset.TabIndex = 15;
-            btnReset.Text = "Reset";
-            btnReset.UseVisualStyleBackColor = true;
-            btnReset.Click += btnReset_Click;
+            cmbUserRole.Size = new Size(350, 33);
+            cmbUserRole.TabIndex = 25;
             // 
             // ManageUsersForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1407, 566);
-            Controls.Add(btnReset);
-            Controls.Add(lblEmail);
-            Controls.Add(lblFullName);
-            Controls.Add(txtEmail);
-            Controls.Add(txtFullName);
-            Controls.Add(panel1);
-            Controls.Add(lblUserRole);
-            Controls.Add(lblPassword);
-            Controls.Add(lblUsername);
-            Controls.Add(txtPassword);
-            Controls.Add(txtUsername);
-            Controls.Add(btnUpdateUser);
-            Controls.Add(btnDeleteUser);
-            Controls.Add(btnAddUser);
-            Controls.Add(cmbUserRole);
+            ClientSize = new Size(1178, 694);
+            Controls.Add(splitContainer1);
             Name = "ManageUsersForm";
             Text = "ManageUsersForm";
             Load += ManageUsersForm_Load;
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgvUsers;
-        private ComboBox cmbUserRole;
-        private Button btnAddUser;
-        private Button btnDeleteUser;
-        private Button btnUpdateUser;
-        private TextBox txtUsername;
-        private TextBox txtPassword;
-        private Label lblUsername;
-        private Label lblPassword;
+        private SplitContainer splitContainer1;
         private Label lblUserRole;
-        private Panel panel1;
-        private TextBox txtFullName;
-        private TextBox txtEmail;
-        private Label lblFullName;
-        private Label lblEmail;
+        private Label lblPassword;
+        private Label lblUsername;
+        private ComboBox cmbUserRole;
         private Button btnReset;
+        private Button btnAddUser;
+        private Label lblEmail;
+        private Button btnDeleteUser;
+        private Label lblFullName;
+        private Button btnUpdateUser;
+        private TextBox txtEmail;
+        private TextBox txtUsername;
+        private TextBox txtFullName;
+        private TextBox txtPassword;
+        private Label label1;
+        private Label label3;
+        private Label label2;
+        private DataGridView dgvUsers;
     }
 }

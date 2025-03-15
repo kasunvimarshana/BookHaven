@@ -102,7 +102,7 @@
             // 
             // txtAddress
             // 
-            txtAddress.Location = new Point(226, 201);
+            txtAddress.Location = new Point(226, 154);
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(350, 31);
             txtAddress.TabIndex = 42;
@@ -141,7 +141,7 @@
             // 
             lblAddress.AutoSize = true;
             lblAddress.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblAddress.Location = new Point(12, 204);
+            lblAddress.Location = new Point(12, 157);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(80, 25);
             lblAddress.TabIndex = 41;
@@ -161,7 +161,7 @@
             // 
             lblContactPerson.AutoSize = true;
             lblContactPerson.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblContactPerson.Location = new Point(12, 53);
+            lblContactPerson.Location = new Point(12, 46);
             lblContactPerson.Name = "lblContactPerson";
             lblContactPerson.Size = new Size(140, 25);
             lblContactPerson.TabIndex = 30;
@@ -171,7 +171,7 @@
             // 
             lblPhone.AutoSize = true;
             lblPhone.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPhone.Location = new Point(12, 101);
+            lblPhone.Location = new Point(12, 83);
             lblPhone.Name = "lblPhone";
             lblPhone.Size = new Size(66, 25);
             lblPhone.TabIndex = 31;
@@ -181,7 +181,7 @@
             // 
             lblEmail.AutoSize = true;
             lblEmail.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblEmail.Location = new Point(12, 152);
+            lblEmail.Location = new Point(12, 120);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(58, 25);
             lblEmail.TabIndex = 32;
@@ -189,14 +189,14 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(226, 149);
+            txtEmail.Location = new Point(226, 117);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(350, 31);
             txtEmail.TabIndex = 34;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(226, 98);
+            txtPhone.Location = new Point(226, 80);
             txtPhone.Name = "txtPhone";
             txtPhone.Size = new Size(350, 31);
             txtPhone.TabIndex = 35;
@@ -204,7 +204,7 @@
             // 
             // txtContactPerson
             // 
-            txtContactPerson.Location = new Point(226, 50);
+            txtContactPerson.Location = new Point(226, 43);
             txtContactPerson.Name = "txtContactPerson";
             txtContactPerson.Size = new Size(350, 31);
             txtContactPerson.TabIndex = 36;
