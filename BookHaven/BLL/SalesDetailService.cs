@@ -41,7 +41,7 @@ namespace BookHaven.BLL
 
             // Recalculate sale total amount
             List<SalesDetail> salesDetails = GetSalesDetailBySaleId(salesDetail.SaleId);
-            decimal totalAmount = salesDetails.Sum(od => od.Quantity * od.Price);
+            decimal totalAmount = salesDetails.Sum(sd => sd.Quantity * sd.Price);
             sale.TotalAmount = totalAmount;
 
             // Update book stock (decrese stock)
@@ -94,7 +94,7 @@ namespace BookHaven.BLL
 
             // Recalculate total amount for sale
             List<SalesDetail> salesDetails = GetSalesDetailBySaleId(salesDetail.SaleId);
-            decimal totalAmount = salesDetails.Sum(od => od.Quantity * od.Price);
+            decimal totalAmount = salesDetails.Sum(sd => sd.Quantity * sd.Price);
             sale.TotalAmount = totalAmount;
 
             // Update book stock and sale records
@@ -104,8 +104,45 @@ namespace BookHaven.BLL
             return true;
         }
 
+        //
         public bool DeleteSalesDetail(int id, SqlTransaction transaction = null)
-            => _salesDetailRepo.DeleteSalesDetail(id, transaction);
+        {
+            // Fetch existing sale detail
+            SalesDetail? salesDetail = _salesDetailRepo.GetSalesDetailById(id);
+            if (salesDetail == null)
+            {
+                throw new InvalidOperationException("Sales detail not found.");
+            }
+
+            // Fetch related sale and book
+            Sale? sale = _salesRepo.GetSaleById(salesDetail.SaleId);
+            Book? book = _bookRepo.GetBookById(salesDetail.BookId);
+            if (sale == null || book == null)
+            {
+                throw new InvalidOperationException("Sale or Book not found.");
+            }
+
+            // Restore stock quantity
+            book.StockQuantity += salesDetail.Quantity;
+            _bookRepo.UpdateBook(book, transaction);
+
+            // Delete sales detail
+            bool isDeleted = _salesDetailRepo.DeleteSalesDetail(id, transaction);
+            if (!isDeleted)
+            {
+                throw new InvalidOperationException("Failed to delete sales detail.");
+            }
+
+            // Recalculate total amount for sale
+            List<SalesDetail> salesDetails = _salesDetailRepo.GetSalesDetailBySaleId(salesDetail.SaleId);
+            sale.TotalAmount = salesDetails.Sum(sa => sa.Quantity * sa.Price);
+
+            // Update book stock and sale records
+            _salesRepo.UpdateSale(sale, transaction);
+            _bookRepo.UpdateBook(book, transaction);
+
+            return true;
+        }
 
         public List<SalesDetail> GetSalesDetailBySaleId(int saleId)
             => _salesDetailRepo.GetSalesDetailBySaleId(saleId);
