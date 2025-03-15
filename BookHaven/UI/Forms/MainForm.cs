@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BookHaven.Helpers;
 using BookHaven.UI.Forms;
+using BookHaven.Helpers;
+using BookHaven.Enums;
+using Models = BookHaven.Models;
 
 namespace BookHaven.UI.Forms
 {
     public partial class MainForm : Form
     {
+        Models.User? _currentUser;
         public MainForm()
         {
             InitializeComponent();
@@ -22,6 +25,22 @@ namespace BookHaven.UI.Forms
         private void MainForm_Load(object sender, EventArgs e)
         {
             //
+            _currentUser = LoggedInUserSession.CurrentUser;
+            InitializeLayout();
+        }
+
+        private void InitializeLayout()
+        {
+            labelName.Text = _currentUser?.FullName ?? "-NA-";
+            labelEmail.Text = _currentUser?.Email ?? "-NA-";
+            labelRole.Text = _currentUser?.Role.ToString() ?? "-NA-";
+
+            btnBookManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin);
+            btnCustomerManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin) || LoggedInUserSession.HasRole(UserRole.SalesClerk);
+            btnSupplierManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin);
+            btnUserManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin);
+            btnOrderManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin);
+            btnSaleManager.Visible = LoggedInUserSession.HasRole(UserRole.Admin) || LoggedInUserSession.HasRole(UserRole.SalesClerk);
         }
 
         private void btnBookManager_Click(object sender, EventArgs e)

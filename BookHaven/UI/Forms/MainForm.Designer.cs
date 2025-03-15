@@ -34,13 +34,22 @@
             btnUserManager = new Button();
             btnOrderManager = new Button();
             btnSaleManager = new Button();
+            panel1 = new Panel();
+            lblName = new Label();
+            labelName = new Label();
+            labelRole = new Label();
+            labelEmail = new Label();
+            lblRole = new Label();
+            lblEmail = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnBookManager
             // 
-            btnBookManager.Location = new Point(72, 54);
+            btnBookManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnBookManager.Location = new Point(12, 185);
             btnBookManager.Name = "btnBookManager";
-            btnBookManager.Size = new Size(234, 88);
+            btnBookManager.Size = new Size(235, 85);
             btnBookManager.TabIndex = 0;
             btnBookManager.Text = "Book Manager";
             btnBookManager.UseVisualStyleBackColor = true;
@@ -48,9 +57,10 @@
             // 
             // btnCustomerManager
             // 
-            btnCustomerManager.Location = new Point(399, 54);
+            btnCustomerManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnCustomerManager.Location = new Point(276, 185);
             btnCustomerManager.Name = "btnCustomerManager";
-            btnCustomerManager.Size = new Size(234, 88);
+            btnCustomerManager.Size = new Size(235, 85);
             btnCustomerManager.TabIndex = 1;
             btnCustomerManager.Text = "Customer Manager";
             btnCustomerManager.UseVisualStyleBackColor = true;
@@ -58,9 +68,10 @@
             // 
             // btnSupplierManager
             // 
-            btnSupplierManager.Location = new Point(72, 191);
+            btnSupplierManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnSupplierManager.Location = new Point(12, 276);
             btnSupplierManager.Name = "btnSupplierManager";
-            btnSupplierManager.Size = new Size(234, 88);
+            btnSupplierManager.Size = new Size(235, 85);
             btnSupplierManager.TabIndex = 2;
             btnSupplierManager.Text = "Supplier Manager";
             btnSupplierManager.UseVisualStyleBackColor = true;
@@ -68,9 +79,10 @@
             // 
             // btnUserManager
             // 
-            btnUserManager.Location = new Point(399, 191);
+            btnUserManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnUserManager.Location = new Point(276, 276);
             btnUserManager.Name = "btnUserManager";
-            btnUserManager.Size = new Size(234, 88);
+            btnUserManager.Size = new Size(235, 85);
             btnUserManager.TabIndex = 3;
             btnUserManager.Text = "User Manager";
             btnUserManager.UseVisualStyleBackColor = true;
@@ -78,9 +90,10 @@
             // 
             // btnOrderManager
             // 
-            btnOrderManager.Location = new Point(72, 342);
+            btnOrderManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnOrderManager.Location = new Point(12, 367);
             btnOrderManager.Name = "btnOrderManager";
-            btnOrderManager.Size = new Size(234, 88);
+            btnOrderManager.Size = new Size(235, 85);
             btnOrderManager.TabIndex = 4;
             btnOrderManager.Text = "Order Manager";
             btnOrderManager.UseVisualStyleBackColor = true;
@@ -88,19 +101,95 @@
             // 
             // btnSaleManager
             // 
-            btnSaleManager.Location = new Point(399, 342);
+            btnSaleManager.Font = new Font("Microsoft Sans Serif", 13F, FontStyle.Bold);
+            btnSaleManager.Location = new Point(276, 367);
             btnSaleManager.Name = "btnSaleManager";
-            btnSaleManager.Size = new Size(234, 88);
+            btnSaleManager.Size = new Size(235, 85);
             btnSaleManager.TabIndex = 5;
             btnSaleManager.Text = "Sales Manager";
             btnSaleManager.UseVisualStyleBackColor = true;
             btnSaleManager.Click += btnSaleManager_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(labelEmail);
+            panel1.Controls.Add(lblRole);
+            panel1.Controls.Add(lblEmail);
+            panel1.Controls.Add(labelRole);
+            panel1.Controls.Add(labelName);
+            panel1.Controls.Add(lblName);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(10);
+            panel1.Size = new Size(499, 167);
+            panel1.TabIndex = 6;
+            // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblName.Location = new Point(13, 10);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(68, 28);
+            lblName.TabIndex = 0;
+            lblName.Text = "Name";
+            // 
+            // labelName
+            // 
+            labelName.AutoSize = true;
+            labelName.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            labelName.Location = new Point(156, 10);
+            labelName.Name = "labelName";
+            labelName.Size = new Size(58, 28);
+            labelName.TabIndex = 1;
+            labelName.Text = "-NA-";
+            // 
+            // labelRole
+            // 
+            labelRole.AutoSize = true;
+            labelRole.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            labelRole.Location = new Point(156, 117);
+            labelRole.Name = "labelRole";
+            labelRole.Size = new Size(58, 28);
+            labelRole.TabIndex = 2;
+            labelRole.Text = "-NA-";
+            // 
+            // labelEmail
+            // 
+            labelEmail.AutoSize = true;
+            labelEmail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            labelEmail.Location = new Point(156, 62);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(58, 28);
+            labelEmail.TabIndex = 5;
+            labelEmail.Text = "-NA-";
+            // 
+            // lblRole
+            // 
+            lblRole.AutoSize = true;
+            lblRole.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblRole.Location = new Point(13, 117);
+            lblRole.Name = "lblRole";
+            lblRole.Size = new Size(54, 28);
+            lblRole.TabIndex = 4;
+            lblRole.Text = "Role";
+            // 
+            // lblEmail
+            // 
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblEmail.Location = new Point(13, 62);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(64, 28);
+            lblEmail.TabIndex = 3;
+            lblEmail.Text = "Email";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(779, 594);
+            ClientSize = new Size(524, 476);
+            Controls.Add(panel1);
             Controls.Add(btnSaleManager);
             Controls.Add(btnOrderManager);
             Controls.Add(btnUserManager);
@@ -110,6 +199,8 @@
             Name = "MainForm";
             Text = "MainForm";
             Load += MainForm_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -121,5 +212,12 @@
         private Button btnUserManager;
         private Button btnOrderManager;
         private Button btnSaleManager;
+        private Panel panel1;
+        private Label lblName;
+        private Label labelRole;
+        private Label labelName;
+        private Label labelEmail;
+        private Label lblRole;
+        private Label lblEmail;
     }
 }

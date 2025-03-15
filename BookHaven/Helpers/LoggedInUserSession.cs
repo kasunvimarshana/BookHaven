@@ -40,9 +40,9 @@ namespace BookHaven.Helpers
         }
 
         // Gets the user's role (if logged in)
-        public static string GetUserRole()
+        public static string? GetUserRole()
         {
-            return _currentUser?.Role.ToString() ?? "Guest";  // Returns "Guest" if no user is logged in
+            return _currentUser?.Role.ToString();
         }
 
         // Checks if the logged-in user has the given role
