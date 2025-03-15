@@ -96,7 +96,7 @@ namespace BookHaven.UI.Forms.SalesDetail
         {
             try
             {
-                Models.Sale sale = _salesService.GetSaleById(_saleId);
+                Models.Sale? sale = _salesService.GetSaleById(_saleId);
                 _selectedSale = sale;
 
                 ConfigureSaleView();
