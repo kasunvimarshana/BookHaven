@@ -31,6 +31,10 @@ namespace BookHaven.UI.Forms
 
         private void InitializeLayout()
         {
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
             labelName.Text = _currentUser?.FullName ?? "-NA-";
             labelEmail.Text = _currentUser?.Email ?? "-NA-";
             labelRole.Text = _currentUser?.Role.ToString() ?? "-NA-";
