@@ -13,6 +13,8 @@ using BookHaven.Utilities;
 using BookHaven.Enums;
 using Models = BookHaven.Models;
 using BookHaven.Helpers;
+using BookHaven.Reports;
+using System.Diagnostics;
 
 namespace BookHaven.UI.Forms.Sale
 {
@@ -20,6 +22,8 @@ namespace BookHaven.UI.Forms.Sale
     {
         private readonly SalesService _salesService;
         private readonly CustomerService _customerService;
+        private readonly SalesReportService _salesReportService;
+        private readonly SalesDetailReportService _salesDetailReportService;
         private Models.Sale? _selectedSale;
         private bool _isUpdateMode = false; // Flag to track update mode
 
@@ -28,6 +32,8 @@ namespace BookHaven.UI.Forms.Sale
             InitializeComponent();
             _salesService = new SalesService();
             _customerService = new CustomerService();
+            _salesReportService = new SalesReportService();
+            _salesDetailReportService = new SalesDetailReportService();
             InitializeLayout();
         }
 
@@ -63,9 +69,10 @@ namespace BookHaven.UI.Forms.Sale
         private void ToggleButtons(bool isUpdateMode)
         {
             btnAddSale.Visible = !isUpdateMode;
-            btnDeleteSale.Visible = isUpdateMode;
+            btnUpdateSale.Visible = isUpdateMode;
             btnDeleteSale.Visible = isUpdateMode;
             btnSalesDetails.Visible = isUpdateMode;
+            btnGenerateDetailReport.Visible = isUpdateMode;
         }
 
         private void LoadSales()
@@ -313,6 +320,38 @@ namespace BookHaven.UI.Forms.Sale
             // Refresh sales when sales details form is closed
             manageSalesDetailsForm.FormClosed += (s, args) => LoadSales();
             manageSalesDetailsForm.Show();
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reportPath = _salesReportService.GenerateTextReport();
+                MessageBox.Show($"Report generated successfully!\n\nSaved at:\n{reportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Open the text file automatically
+                Process.Start(new ProcessStartInfo(reportPath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to generate report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGenerateDetailReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string reportPath = _salesDetailReportService.GenerateTextReport(_selectedSale.Id);
+                MessageBox.Show($"Report generated successfully!\n\nSaved at:\n{reportPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Open the text file automatically
+                Process.Start(new ProcessStartInfo(reportPath) { UseShellExecute = true });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to generate report: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

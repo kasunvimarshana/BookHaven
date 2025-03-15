@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnGenerateDetailReport = new Button();
+            btnGenerateReport = new Button();
             cmbCustomerId = new ComboBox();
             btnSalesDetails = new Button();
             lblCustomeId = new Label();
             btnReset = new Button();
             btnAddSale = new Button();
-            btnDeleteOrder = new Button();
             btnDeleteSale = new Button();
+            btnUpdateSale = new Button();
             dgvSales = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -53,13 +55,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            splitContainer1.Panel1.Controls.Add(btnGenerateDetailReport);
+            splitContainer1.Panel1.Controls.Add(btnGenerateReport);
             splitContainer1.Panel1.Controls.Add(cmbCustomerId);
             splitContainer1.Panel1.Controls.Add(btnSalesDetails);
             splitContainer1.Panel1.Controls.Add(lblCustomeId);
             splitContainer1.Panel1.Controls.Add(btnReset);
             splitContainer1.Panel1.Controls.Add(btnAddSale);
-            splitContainer1.Panel1.Controls.Add(btnDeleteOrder);
             splitContainer1.Panel1.Controls.Add(btnDeleteSale);
+            splitContainer1.Panel1.Controls.Add(btnUpdateSale);
             // 
             // splitContainer1.Panel2
             // 
@@ -67,6 +71,28 @@
             splitContainer1.Size = new Size(1178, 694);
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnGenerateDetailReport
+            // 
+            btnGenerateDetailReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateDetailReport.Location = new Point(933, 53);
+            btnGenerateDetailReport.Name = "btnGenerateDetailReport";
+            btnGenerateDetailReport.Size = new Size(115, 35);
+            btnGenerateDetailReport.TabIndex = 25;
+            btnGenerateDetailReport.Text = "Detail Report";
+            btnGenerateDetailReport.UseVisualStyleBackColor = true;
+            btnGenerateDetailReport.Click += btnGenerateDetailReport_Click;
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateReport.Location = new Point(933, 12);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(115, 35);
+            btnGenerateReport.TabIndex = 24;
+            btnGenerateReport.Text = "Report";
+            btnGenerateReport.UseVisualStyleBackColor = true;
+            btnGenerateReport.Click += btnGenerateReport_Click;
             // 
             // cmbCustomerId
             // 
@@ -119,27 +145,27 @@
             btnAddSale.UseVisualStyleBackColor = true;
             btnAddSale.Click += btnAddSale_Click;
             // 
-            // btnDeleteOrder
-            // 
-            btnDeleteOrder.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDeleteOrder.Location = new Point(1054, 94);
-            btnDeleteOrder.Name = "btnDeleteOrder";
-            btnDeleteOrder.Size = new Size(115, 35);
-            btnDeleteOrder.TabIndex = 21;
-            btnDeleteOrder.Text = "Delete";
-            btnDeleteOrder.UseVisualStyleBackColor = true;
-            btnDeleteOrder.Click += btnDeleteSale_Click;
-            // 
             // btnDeleteSale
             // 
             btnDeleteSale.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDeleteSale.Location = new Point(1054, 53);
+            btnDeleteSale.Location = new Point(1054, 94);
             btnDeleteSale.Name = "btnDeleteSale";
             btnDeleteSale.Size = new Size(115, 35);
-            btnDeleteSale.TabIndex = 20;
-            btnDeleteSale.Text = "Update";
+            btnDeleteSale.TabIndex = 21;
+            btnDeleteSale.Text = "Delete";
             btnDeleteSale.UseVisualStyleBackColor = true;
-            btnDeleteSale.Click += btnUpdateSale_Click;
+            btnDeleteSale.Click += btnDeleteSale_Click;
+            // 
+            // btnUpdateSale
+            // 
+            btnUpdateSale.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnUpdateSale.Location = new Point(1054, 53);
+            btnUpdateSale.Name = "btnUpdateSale";
+            btnUpdateSale.Size = new Size(115, 35);
+            btnUpdateSale.TabIndex = 20;
+            btnUpdateSale.Text = "Update";
+            btnUpdateSale.UseVisualStyleBackColor = true;
+            btnUpdateSale.Click += btnUpdateSale_Click;
             // 
             // dgvSales
             // 
@@ -178,8 +204,10 @@
         private Label lblCustomeId;
         private Button btnReset;
         private Button btnAddSale;
-        private Button btnDeleteOrder;
         private Button btnDeleteSale;
+        private Button btnUpdateSale;
         private DataGridView dgvSales;
+        private Button btnGenerateReport;
+        private Button btnGenerateDetailReport;
     }
 }
