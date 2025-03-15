@@ -28,6 +28,14 @@ namespace BookHaven.UI.Forms
         private void LoginForm_Load(object sender, EventArgs e)
         {
             //
+            InitializeLayout();
+        }
+
+        private void InitializeLayout()
+        {
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void ShowError(string message, Exception ex)
