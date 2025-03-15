@@ -4,3 +4,6 @@ BookHaven/bin
 BookHaven/obj
 BookHavenSetup/Debug
 BookHavenSetup/Release
+BookHavenSetupWizard/Debug
+BookHavenSetupWizard/Release
+tmp/

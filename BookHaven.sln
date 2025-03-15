@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookHaven", "BookHaven\Book
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BookHavenSetup", "BookHavenSetup\BookHavenSetup.vdproj", "{61176246-FC30-11C6-8AAC-2952671CE6E1}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BookHavenSetupWizard", "BookHavenSetupWizard\BookHavenSetupWizard.vdproj", "{4BA3CBA7-2EA1-B274-104A-9FB02475C69D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,8 @@ Global
 		{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61176246-FC30-11C6-8AAC-2952671CE6E1}.Debug|Any CPU.ActiveCfg = Debug
 		{61176246-FC30-11C6-8AAC-2952671CE6E1}.Release|Any CPU.ActiveCfg = Release
+		{4BA3CBA7-2EA1-B274-104A-9FB02475C69D}.Debug|Any CPU.ActiveCfg = Debug
+		{4BA3CBA7-2EA1-B274-104A-9FB02475C69D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
