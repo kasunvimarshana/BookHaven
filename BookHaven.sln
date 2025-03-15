@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookHaven", "BookHaven\BookHaven.csproj", "{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BookHavenSetup", "BookHavenSetup\BookHavenSetup.vdproj", "{61176246-FC30-11C6-8AAC-2952671CE6E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B21E32D2-F5E9-44D2-B6CF-6E789CEBBB87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61176246-FC30-11C6-8AAC-2952671CE6E1}.Debug|Any CPU.ActiveCfg = Debug
+		{61176246-FC30-11C6-8AAC-2952671CE6E1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
