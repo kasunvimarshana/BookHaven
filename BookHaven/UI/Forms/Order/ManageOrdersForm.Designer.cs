@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
+            btnGenerateDetailReport = new Button();
             btnGenerateReport = new Button();
             btnOrderDetails = new Button();
             cmbSupplierId = new ComboBox();
@@ -38,7 +39,6 @@
             btnAddOrder = new Button();
             btnUpdateOrder = new Button();
             dgvOrders = new DataGridView();
-            btnGenerateDetailReport = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -71,6 +71,17 @@
             splitContainer1.Size = new Size(1178, 694);
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
+            // 
+            // btnGenerateDetailReport
+            // 
+            btnGenerateDetailReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnGenerateDetailReport.Location = new Point(933, 53);
+            btnGenerateDetailReport.Name = "btnGenerateDetailReport";
+            btnGenerateDetailReport.Size = new Size(115, 35);
+            btnGenerateDetailReport.TabIndex = 17;
+            btnGenerateDetailReport.Text = "Detail Report";
+            btnGenerateDetailReport.UseVisualStyleBackColor = true;
+            btnGenerateDetailReport.Click += btnGenerateDetailReport_Click;
             // 
             // btnGenerateReport
             // 
@@ -119,9 +130,9 @@
             lblSupplierId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblSupplierId.Location = new Point(12, 9);
             lblSupplierId.Name = "lblSupplierId";
-            lblSupplierId.Size = new Size(93, 25);
+            lblSupplierId.Size = new Size(82, 25);
             lblSupplierId.TabIndex = 10;
-            lblSupplierId.Text = "Customer";
+            lblSupplierId.Text = "Supplier";
             // 
             // btnDeleteOrder
             // 
@@ -166,17 +177,6 @@
             dgvOrders.Size = new Size(1172, 434);
             dgvOrders.TabIndex = 8;
             dgvOrders.CellClick += dgvOrders_CellClick;
-            // 
-            // btnGenerateDetailReport
-            // 
-            btnGenerateDetailReport.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnGenerateDetailReport.Location = new Point(933, 53);
-            btnGenerateDetailReport.Name = "btnGenerateDetailReport";
-            btnGenerateDetailReport.Size = new Size(115, 35);
-            btnGenerateDetailReport.TabIndex = 17;
-            btnGenerateDetailReport.Text = "Detail Report";
-            btnGenerateDetailReport.UseVisualStyleBackColor = true;
-            btnGenerateDetailReport.Click += btnGenerateDetailReport_Click;
             // 
             // ManageOrdersForm
             // 
