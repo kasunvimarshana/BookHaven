@@ -7,3 +7,5 @@ BookHavenSetup/Release
 BookHavenSetupWizard/Debug
 BookHavenSetupWizard/Release
 tmp/
+
+*.user
