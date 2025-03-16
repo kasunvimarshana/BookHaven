@@ -141,6 +141,37 @@ namespace BookHaven.DAL
             }
         }
 
+        // Get total sales over time
+        public DataTable GetTotalSalesOverTime(DateTime startDate, DateTime endDate)
+        {
+            string query = @"
+                SELECT CAST(SaleDate AS DATE) AS SaleDate, SUM(TotalAmount) AS TotalSales
+                FROM Sales
+                WHERE SaleDate BETWEEN @StartDate AND @EndDate
+                GROUP BY CAST(SaleDate AS DATE)
+                ORDER BY SaleDate";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@StartDate", startDate),
+                new SqlParameter("@EndDate", endDate)
+            };
+
+            return _dbHelper.ExecuteQuery(query, parameters);
+        }
+
+        public DataTable GetSalesTrends()
+        {
+            string query = @"
+                SELECT 
+                    CAST(SaleDate AS DATE) AS SaleDate, 
+                    SUM(TotalAmount) AS TotalSales 
+                FROM Sales 
+                GROUP BY CAST(SaleDate AS DATE) 
+                ORDER BY SaleDate";
+
+            return _dbHelper.ExecuteQuery(query, new SqlParameter[] { });
+        }
+
         private Sale MapSale(DataRow row)
         {
             return new Sale

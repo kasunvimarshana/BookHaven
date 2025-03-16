@@ -170,6 +170,37 @@ namespace BookHaven.DAL
             }
         }
 
+        // Get top-selling books
+        public DataTable GetTopSellingBooks(int topN)
+        {
+            string query = @"
+                SELECT TOP (@TopN) b.Title, SUM(sd.Quantity) AS TotalSold
+                FROM SalesDetails sd
+                JOIN Books b ON sd.BookId = b.Id
+                GROUP BY b.Title
+                ORDER BY TotalSold DESC";
+
+            SqlParameter[] parameters = {
+                new SqlParameter("@TopN", topN)
+            };
+
+            return _dbHelper.ExecuteQuery(query, parameters);
+        }
+
+        public DataTable GetRevenueByGenre()
+        {
+            string query = @"
+                SELECT 
+                    b.Genre, 
+                    SUM(sd.Quantity * sd.Price) AS TotalRevenue 
+                FROM SalesDetails sd 
+                JOIN Books b ON sd.BookId = b.Id 
+                GROUP BY b.Genre 
+                ORDER BY TotalRevenue DESC";
+
+            return _dbHelper.ExecuteQuery(query, new SqlParameter[] { });
+        }
+
         private SalesDetail MapSalesDetail(DataRow row)
         {
             return new SalesDetail
