@@ -19,11 +19,13 @@ namespace BookHaven.Reports
     {
         private readonly OrderService _orderService;
         private readonly SupplierService _supplierService;
+        private readonly BookService _bookService;
 
         public OrderDetailReportService()
         {
             _orderService = new OrderService();
             _supplierService = new SupplierService();
+            _bookService = new BookService();
         }
 
         public string GenerateTextReport(int orderId)
@@ -44,11 +46,12 @@ namespace BookHaven.Reports
                 writer.WriteLine($"Order Date: {order.OrderDate}");
                 writer.WriteLine("----------------------------------");
                 writer.WriteLine("Item Details:");
-                writer.WriteLine("Book ID\tQuantity\tPrice");
+                writer.WriteLine("Book\tQuantity\tPrice");
 
                 foreach (var detail in order.OrderDetails)
                 {
-                    writer.WriteLine($"{detail.BookId}\t{detail.Quantity}\t{detail.Price:C}");
+                    Book? book = _bookService.GetBookById(detail.BookId);
+                    writer.WriteLine($"{book?.Title}\t{detail.Quantity}\t{detail.Price:C}");
                 }
 
                 writer.WriteLine("**********************************");

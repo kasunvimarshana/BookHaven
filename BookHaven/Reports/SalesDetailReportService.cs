@@ -19,11 +19,13 @@ namespace BookHaven.Reports
     {
         private readonly SalesService _salesService;
         private readonly CustomerService _customerService;
+        private readonly BookService _bookService;
 
         public SalesDetailReportService()
         {
             _salesService = new SalesService();
             _customerService = new CustomerService();
+            _bookService = new BookService();
         }
 
         public string GenerateTextReport(int saleId)
@@ -46,11 +48,12 @@ namespace BookHaven.Reports
                 writer.WriteLine($"Sale Date: {sale.SaleDate}");
                 writer.WriteLine("----------------------------------");
                 writer.WriteLine("Item Details:");
-                writer.WriteLine("Book ID\tQuantity\tPrice");
+                writer.WriteLine("Book\tQuantity\tPrice");
 
                 foreach (var detail in sale.SalesDetails)
                 {
-                    writer.WriteLine($"{detail.BookId}\t{detail.Quantity}\t{detail.Price:C}");
+                    Book? book = _bookService.GetBookById(detail.BookId);
+                    writer.WriteLine($"{book?.Title}\t{detail.Quantity}\t{detail.Price:C}");
                 }
 
                 writer.WriteLine("**********************************");
