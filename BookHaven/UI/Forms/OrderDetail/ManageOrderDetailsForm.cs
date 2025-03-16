@@ -331,5 +331,10 @@ namespace BookHaven.UI.Forms.OrderDetail
             Models.Book? book = cmbBookId.SelectedItem as Models.Book;
             txtPrice.Text = (book != null) ? book?.Price.ToString() : string.Empty;
         }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

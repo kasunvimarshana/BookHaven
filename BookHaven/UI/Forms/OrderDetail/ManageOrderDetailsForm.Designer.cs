@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             splitContainer1 = new SplitContainer();
-            dgvOrderDetails = new DataGridView();
-            txtQuantity = new TextBox();
-            lblQuantity = new Label();
-            txtPrice = new TextBox();
-            lblPrice = new Label();
-            btnReset = new Button();
-            btnDeleteOrderDetail = new Button();
-            btnUpdateOrderDetail = new Button();
             btnAddOrderDetail = new Button();
-            lblBookId = new Label();
+            txtQuantity = new TextBox();
             cmbBookId = new ComboBox();
+            lblQuantity = new Label();
+            lblBookId = new Label();
+            txtPrice = new TextBox();
+            btnUpdateOrderDetail = new Button();
+            lblPrice = new Label();
+            btnDeleteOrderDetail = new Button();
+            btnReset = new Button();
+            dgvOrderDetails = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -74,16 +74,16 @@
             splitContainer1.SplitterDistance = 250;
             splitContainer1.TabIndex = 0;
             // 
-            // dgvOrderDetails
+            // btnAddOrderDetail
             // 
-            dgvOrderDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvOrderDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderDetails.Location = new Point(3, 3);
-            dgvOrderDetails.Name = "dgvOrderDetails";
-            dgvOrderDetails.RowHeadersWidth = 62;
-            dgvOrderDetails.Size = new Size(1172, 434);
-            dgvOrderDetails.TabIndex = 19;
-            dgvOrderDetails.CellClick += dgvOrderDetails_CellClick;
+            btnAddOrderDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAddOrderDetail.Location = new Point(1054, 12);
+            btnAddOrderDetail.Name = "btnAddOrderDetail";
+            btnAddOrderDetail.Size = new Size(115, 35);
+            btnAddOrderDetail.TabIndex = 22;
+            btnAddOrderDetail.Text = "Add";
+            btnAddOrderDetail.UseVisualStyleBackColor = true;
+            btnAddOrderDetail.Click += btnAddOrderDetail_Click;
             // 
             // txtQuantity
             // 
@@ -91,6 +91,15 @@
             txtQuantity.Name = "txtQuantity";
             txtQuantity.Size = new Size(350, 31);
             txtQuantity.TabIndex = 29;
+            // 
+            // cmbBookId
+            // 
+            cmbBookId.FormattingEnabled = true;
+            cmbBookId.Location = new Point(226, 6);
+            cmbBookId.Name = "cmbBookId";
+            cmbBookId.Size = new Size(350, 33);
+            cmbBookId.TabIndex = 20;
+            cmbBookId.SelectedIndexChanged += cmbBookId_SelectedIndexChanged;
             // 
             // lblQuantity
             // 
@@ -102,44 +111,22 @@
             lblQuantity.TabIndex = 28;
             lblQuantity.Text = "Quantity";
             // 
+            // lblBookId
+            // 
+            lblBookId.AutoSize = true;
+            lblBookId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblBookId.Location = new Point(12, 9);
+            lblBookId.Name = "lblBookId";
+            lblBookId.Size = new Size(56, 25);
+            lblBookId.TabIndex = 21;
+            lblBookId.Text = "Book";
+            // 
             // txtPrice
             // 
             txtPrice.Location = new Point(226, 45);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(350, 31);
             txtPrice.TabIndex = 27;
-            // 
-            // lblPrice
-            // 
-            lblPrice.AutoSize = true;
-            lblPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblPrice.Location = new Point(12, 48);
-            lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(54, 25);
-            lblPrice.TabIndex = 26;
-            lblPrice.Text = "Price";
-            // 
-            // btnReset
-            // 
-            btnReset.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnReset.Location = new Point(1054, 135);
-            btnReset.Name = "btnReset";
-            btnReset.Size = new Size(115, 35);
-            btnReset.TabIndex = 25;
-            btnReset.Text = "Reset";
-            btnReset.UseVisualStyleBackColor = true;
-            btnReset.Click += btnReset_Click;
-            // 
-            // btnDeleteOrderDetail
-            // 
-            btnDeleteOrderDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnDeleteOrderDetail.Location = new Point(1054, 94);
-            btnDeleteOrderDetail.Name = "btnDeleteOrderDetail";
-            btnDeleteOrderDetail.Size = new Size(115, 35);
-            btnDeleteOrderDetail.TabIndex = 24;
-            btnDeleteOrderDetail.Text = "Delete";
-            btnDeleteOrderDetail.UseVisualStyleBackColor = true;
-            btnDeleteOrderDetail.Click += btnDeleteOrderDetail_Click;
             // 
             // btnUpdateOrderDetail
             // 
@@ -152,35 +139,48 @@
             btnUpdateOrderDetail.UseVisualStyleBackColor = true;
             btnUpdateOrderDetail.Click += btnUpdateOrderDetail_Click;
             // 
-            // btnAddOrderDetail
+            // lblPrice
             // 
-            btnAddOrderDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnAddOrderDetail.Location = new Point(1054, 12);
-            btnAddOrderDetail.Name = "btnAddOrderDetail";
-            btnAddOrderDetail.Size = new Size(115, 35);
-            btnAddOrderDetail.TabIndex = 22;
-            btnAddOrderDetail.Text = "Add";
-            btnAddOrderDetail.UseVisualStyleBackColor = true;
-            btnAddOrderDetail.Click += btnAddOrderDetail_Click;
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPrice.Location = new Point(12, 48);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(54, 25);
+            lblPrice.TabIndex = 26;
+            lblPrice.Text = "Price";
             // 
-            // lblBookId
+            // btnDeleteOrderDetail
             // 
-            lblBookId.AutoSize = true;
-            lblBookId.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblBookId.Location = new Point(12, 9);
-            lblBookId.Name = "lblBookId";
-            lblBookId.Size = new Size(56, 25);
-            lblBookId.TabIndex = 21;
-            lblBookId.Text = "Book";
+            btnDeleteOrderDetail.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDeleteOrderDetail.Location = new Point(1054, 94);
+            btnDeleteOrderDetail.Name = "btnDeleteOrderDetail";
+            btnDeleteOrderDetail.Size = new Size(115, 35);
+            btnDeleteOrderDetail.TabIndex = 24;
+            btnDeleteOrderDetail.Text = "Delete";
+            btnDeleteOrderDetail.UseVisualStyleBackColor = true;
+            btnDeleteOrderDetail.Click += btnDeleteOrderDetail_Click;
             // 
-            // cmbBookId
+            // btnReset
             // 
-            cmbBookId.FormattingEnabled = true;
-            cmbBookId.Location = new Point(226, 6);
-            cmbBookId.Name = "cmbBookId";
-            cmbBookId.Size = new Size(350, 33);
-            cmbBookId.TabIndex = 20;
-            cmbBookId.SelectedIndexChanged += cmbBookId_SelectedIndexChanged;
+            btnReset.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReset.Location = new Point(1054, 135);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(115, 35);
+            btnReset.TabIndex = 25;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
+            // 
+            // dgvOrderDetails
+            // 
+            dgvOrderDetails.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrderDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrderDetails.Location = new Point(3, 3);
+            dgvOrderDetails.Name = "dgvOrderDetails";
+            dgvOrderDetails.RowHeadersWidth = 62;
+            dgvOrderDetails.Size = new Size(1172, 434);
+            dgvOrderDetails.TabIndex = 19;
+            dgvOrderDetails.CellClick += dgvOrderDetails_CellClick;
             // 
             // ManageOrderDetailsForm
             // 
