@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+
+actor Admin
+actor "Sales Clerk" as SalesClerk
+
+rectangle "BookHaven System" {
+    (Authentication) <<include>>
+    (Dashboard) <<include>>
+
+    rectangle "Management" {
+        (User Management)
+        (Supplier Management)
+        (Customer Management)
+        (Book Management)
+        (Order Management)
+        (Sales Management)
+    }
+
+    rectangle "Reporting" {
+        (Generate Order Reports)
+        (Generate Sales Reports)
+    }
+
+    Admin -- (Authentication)
+    Admin -- (Dashboard)
+    Admin -- (User Management)
+    Admin -- (Supplier Management)
+    Admin -- (Customer Management)
+    Admin -- (Book Management)
+    Admin -- (Order Management)
+    Admin -- (Generate Order Reports)
+    Admin -- (Generate Sales Reports)
+
+    SalesClerk -- (Authentication)
+    SalesClerk -- (Dashboard)
+    SalesClerk -- (Customer Management)
+    SalesClerk -- (Sales Management)
+    SalesClerk -- (Generate Sales Reports)
+
+    (Dashboard) <.. (Authentication) : <<include>>
+
+    (Dashboard) <.. (User Management) : <<extend>>
+    (Dashboard) <.. (Supplier Management) : <<extend>>
+    (Dashboard) <.. (Customer Management) : <<extend>>
+    (Dashboard) <.. (Book Management) : <<extend>>
+    (Dashboard) <.. (Order Management) : <<extend>>
+    (Dashboard) <.. (Sales Management) : <<extend>>
+    (Dashboard) <.. (Generate Order Reports) : <<extend>>
+    (Dashboard) <.. (Generate Sales Reports) : <<extend>>
+
+    (Order Management) <.. (Generate Order Reports) : <<extend>>
+    (Sales Management) <.. (Generate Sales Reports) : <<extend>>
+}
+
+@enduml
