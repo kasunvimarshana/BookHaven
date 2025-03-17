@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+
+actor Admin
+actor "Sales Clerk" as SalesClerk
+
+rectangle BookHaven {
+  Admin -- (User Management)
+  Admin -- (Book Management)
+  Admin -- (Supplier Management)
+  Admin -- (Order Management)
+  Admin -- (Sales Management)
+  Admin -- (Dashboard)
+  Admin -- (Authentication)
+
+  SalesClerk -- (Customer Management)
+  SalesClerk -- (Sales Management)
+  SalesClerk -- (Generate Reports)
+
+  (User Management) <.. (Authentication) : <<include>>
+  (Order Management) <.. (Generate Reports) : <<extend>>
+  (Sales Management) <.. (Generate Reports) : <<extend>>
+}
+
+@enduml
