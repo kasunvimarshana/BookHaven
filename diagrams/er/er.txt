@@ -1,0 +1,97 @@
+@startuml
+
+entity "Users" as Users {
+    *Id : INT
+    --
+    Username : NVARCHAR(50)
+    Password : NVARCHAR(255)
+    FullName : NVARCHAR(100)
+    Role : NVARCHAR(20)
+    Email : NVARCHAR(100)
+    CreatedAt : DATETIME
+}
+
+entity "Customers" as Customers {
+    *Id : INT
+    --
+    FullName : NVARCHAR(100)
+    Email : NVARCHAR(100)
+    Phone : NVARCHAR(15)
+    Address : NVARCHAR(255)
+    CreatedAt : DATETIME
+}
+
+entity "Suppliers" as Suppliers {
+    *Id : INT
+    --
+    Name : NVARCHAR(100)
+    ContactPerson : NVARCHAR(100)
+    Phone : NVARCHAR(15)
+    Email : NVARCHAR(100)
+    Address : NVARCHAR(255)
+    CreatedAt : DATETIME
+}
+
+entity "Books" as Books {
+    *Id : INT
+    --
+    Title : NVARCHAR(255)
+    Author : NVARCHAR(100)
+    Genre : NVARCHAR(50)
+    ISBN : NVARCHAR(20)
+    Price : DECIMAL(10,2)
+    StockQuantity : INT
+    SupplierId : INT
+    CreatedAt : DATETIME
+}
+
+entity "Sales" as Sales {
+    *Id : INT
+    --
+    CustomerId : INT
+    UserId : INT
+    TotalAmount : DECIMAL(10,2)
+    Discount : DECIMAL(5,2)
+    SaleDate : DATETIME
+}
+
+entity "SalesDetails" as SalesDetails {
+    *Id : INT
+    --
+    SaleId : INT
+    BookId : INT
+    Quantity : INT
+    Price : DECIMAL(10,2)
+    Subtotal : DECIMAL(10,2)
+}
+
+entity "Orders" as Orders {
+    *Id : INT
+    --
+    SupplierId : INT
+    OrderDate : DATETIME
+    TotalAmount : DECIMAL(10,2)
+    OrderStatus : NVARCHAR(20)
+}
+
+entity "OrderDetails" as OrderDetails {
+    *Id : INT
+    --
+    OrderId : INT
+    BookId : INT
+    Quantity : INT
+    Price : DECIMAL(10,2)
+    Subtotal : DECIMAL(10,2)
+}
+
+Users ||--o{ Sales : "creates"
+Customers ||--o{ Sales : "makes"
+Suppliers ||--o{ Books : "supplies"
+Suppliers ||--o{ Orders : "receives"
+Sales ||--o{ SalesDetails : "contains"
+Books ||--o{ SalesDetails : "sold in"
+Orders ||--o{ OrderDetails : "contains"
+Books ||--o{ OrderDetails : "ordered in"
+
+@enduml
+The ER diagram above represents the database schema for the BookHaven application. It includes entities for Users, Customers, Suppliers, Books, Sales, SalesDetails, Orders, and OrderDetails. Each entity has its attributes, and the relationships between entities are depicted with lines connecting them. The diagram shows how users create sales, customers make sales, suppliers supply books and receive orders, and how sales and orders contain details about the books involved.
