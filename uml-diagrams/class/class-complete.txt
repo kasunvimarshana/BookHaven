@@ -1,0 +1,274 @@
+@startuml
+
+' Define packages
+package "BookHaven.Enums" {
+    class UserRole {
+        + Admin
+        + SalesClerk
+    }
+}
+
+package "BookHaven.Models" {
+    class User {
+        + int Id
+        + string Username
+        + string Password
+        + string FullName
+        + string Email
+        + DateTime CreatedAt
+        + UserRole Role
+    }
+
+    class Customer {
+        + int Id
+        + string FullName
+        + string Email
+        + string Phone
+        + string Address
+        + DateTime CreatedAt
+    }
+
+    class Supplier {
+        + int Id
+        + string Name
+        + string ContactPerson
+        + string Phone
+        + string Email
+        + string Address
+        + DateTime CreatedAt
+    }
+
+    class Book {
+        + int Id
+        + string Title
+        + string Author
+        + string Genre
+        + string ISBN
+        + decimal Price
+        + int StockQuantity
+        + DateTime CreatedAt
+    }
+
+    class Order {
+        + int Id
+        + int SupplierId
+        + DateTime OrderDate
+        + decimal TotalAmount
+        + OrderStatus OrderStatus
+    }
+
+    class OrderDetail {
+        + int Id
+        + int OrderId
+        + int BookId
+        + int Quantity
+        + decimal Price
+    }
+
+    class Sale {
+        + int Id
+        + int CustomerId
+        + int UserId
+        + decimal TotalAmount
+        + decimal Discount
+        + DateTime SaleDate
+    }
+
+    class SalesDetail {
+        + int Id
+        + int SaleId
+        + int BookId
+        + int Quantity
+        + decimal Price
+    }
+}
+
+package "BookHaven.Services" {
+    interface IAuthenticationService {
+        + bool AuthenticateUser(string username, string password, out User user)
+    }
+
+    class AuthenticationService {
+        + bool AuthenticateUser(string username, string password, out User user)
+    }
+
+    interface IUserService {
+        + List<User> GetAllUsers()
+        + bool CreateUser(User user)
+        + bool UpdateUser(User user)
+        + bool DeleteUser(int id)
+    }
+
+    class UserService {
+        + List<User> GetAllUsers()
+        + bool CreateUser(User user)
+        + bool UpdateUser(User user)
+        + bool DeleteUser(int id)
+    }
+
+    interface ICustomerService {
+        + List<Customer> GetAllCustomers()
+        + bool CreateCustomer(Customer customer)
+        + bool UpdateCustomer(Customer customer)
+        + bool DeleteCustomer(int id)
+    }
+
+    class CustomerService {
+        + List<Customer> GetAllCustomers()
+        + bool CreateCustomer(Customer customer)
+        + bool UpdateCustomer(Customer customer)
+        + bool DeleteCustomer(int id)
+    }
+
+    interface ISupplierService {
+        + List<Supplier> GetAllSuppliers()
+        + bool CreateSupplier(Supplier supplier)
+        + bool UpdateSupplier(Supplier supplier)
+        + bool DeleteSupplier(int id)
+    }
+
+    class SupplierService {
+        + List<Supplier> GetAllSuppliers()
+        + bool CreateSupplier(Supplier supplier)
+        + bool UpdateSupplier(Supplier supplier)
+        + bool DeleteSupplier(int id)
+    }
+
+    interface IBookService {
+        + List<Book> GetAllBooks()
+        + bool CreateBook(Book book)
+        + bool UpdateBook(Book book)
+        + bool DeleteBook(int id)
+    }
+
+    class BookService {
+        + List<Book> GetAllBooks()
+        + bool CreateBook(Book book)
+        + bool UpdateBook(Book book)
+        + bool DeleteBook(int id)
+    }
+
+    interface IOrderService {
+        + List<Order> GetAllOrders()
+        + bool CreateOrder(Order order)
+        + bool UpdateOrder(Order order)
+        + bool DeleteOrder(int id)
+    }
+
+    class OrderService {
+        + List<Order> GetAllOrders()
+        + bool CreateOrder(Order order)
+        + bool UpdateOrder(Order order)
+        + bool DeleteOrder(int id)
+    }
+
+    interface ISalesService {
+        + List<Sale> GetAllSales()
+        + bool CreateSale(Sale sale)
+        + bool UpdateSale(Sale sale)
+        + bool DeleteSale(int id)
+    }
+
+    class SalesService {
+        + List<Sale> GetAllSales()
+        + bool CreateSale(Sale sale)
+        + bool UpdateSale(Sale sale)
+        + bool DeleteSale(int id)
+    }
+}
+
+package "BookHaven.UI.Forms" {
+    class LoginForm {
+        - AuthenticationService _authenticationService
+        + void InitializeLayout()
+        + void btnLogin_Click(object sender, EventArgs e)
+        + void btnRegister_Click(object sender, EventArgs e)
+    }
+
+    class MainForm {
+        - SalesService _salesService
+        - SalesDetailService _salesDetailService
+        - OrderService _orderService
+        - BookService _bookService
+        + void InitializeLayout()
+        + void LoadDashboardData()
+    }
+
+    class ManageUsersForm {
+        - UserService _userService
+        + void InitializeLayout()
+        + void LoadUsers()
+        + void btnAddUser_Click(object sender, EventArgs e)
+        + void btnUpdateUser_Click(object sender, EventArgs e)
+        + void btnDeleteUser_Click(object sender, EventArgs e)
+    }
+
+    class ManageCustomersForm {
+        - CustomerService _customerService
+        + void InitializeLayout()
+        + void LoadCustomers()
+        + void btnAddCustomer_Click(object sender, EventArgs e)
+        + void btnUpdateCustomer_Click(object sender, EventArgs e)
+        + void btnDeleteCustomer_Click(object sender, EventArgs e)
+    }
+
+    class ManageSuppliersForm {
+        - SupplierService _supplierService
+        + void InitializeLayout()
+        + void LoadSuppliers()
+        + void btnAddSupplier_Click(object sender, EventArgs e)
+        + void btnUpdateSupplier_Click(object sender, EventArgs e)
+        + void btnDeleteSupplier_Click(object sender, EventArgs e)
+    }
+
+    class ManageBooksForm {
+        - BookService _bookService
+        + void InitializeLayout()
+        + void LoadBooks()
+        + void btnAddBook_Click(object sender, EventArgs e)
+        + void btnUpdateBook_Click(object sender, EventArgs e)
+        + void btnDeleteBook_Click(object sender, EventArgs e)
+    }
+
+    class ManageOrdersForm {
+        - OrderService _orderService
+        + void InitializeLayout()
+        + void LoadOrders()
+        + void btnAddOrder_Click(object sender, EventArgs e)
+        + void btnUpdateOrder_Click(object sender, EventArgs e)
+        + void btnDeleteOrder_Click(object sender, EventArgs e)
+    }
+
+    class ManageSalesForm {
+        - SalesService _salesService
+        + void InitializeLayout()
+        + void LoadSales()
+        + void btnAddSale_Click(object sender, EventArgs e)
+        + void btnUpdateSale_Click(object sender, EventArgs e)
+        + void btnDeleteSale_Click(object sender, EventArgs e)
+    }
+}
+
+' Relationships
+UserService ..|> IUserService
+CustomerService ..|> ICustomerService
+SupplierService ..|> ISupplierService
+BookService ..|> IBookService
+OrderService ..|> IOrderService
+SalesService ..|> ISalesService
+AuthenticationService ..|> IAuthenticationService
+
+LoginForm --> AuthenticationService
+MainForm --> SalesService
+MainForm --> SalesDetailService
+MainForm --> OrderService
+MainForm --> BookService
+
+ManageUsersForm --> UserService
+ManageCustomersForm --> CustomerService
+ManageSuppliersForm --> SupplierService
+ManageBooksForm --> BookService
+ManageOrdersForm --> OrderService
+ManageSalesForm --> SalesService
+
+@enduml
