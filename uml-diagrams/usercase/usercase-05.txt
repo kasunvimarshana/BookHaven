@@ -1,0 +1,45 @@
+@startuml usecase
+left to right direction
+
+actor Admin
+actor "Sales Clerk" as SalesClerk
+
+rectangle "BookHaven System" {
+
+  (Authentication) as Authentication
+
+  rectangle "Dashboard & Management" as Dashboard {
+   (User Management) as UserManagement
+   (Supplier Management) as SupplierManagement
+   (Customer Management) as CustomerManagement
+   (Book Management) as BookManagement
+   (Order Management) as OrderManagement
+   (Order Details Management) as OrderDetailsManagement
+   (Sales Management) as SalesManagement
+   (Sales Details Management) as SalesDetailsManagement
+   (Generate Order Reports) as GenerateOrderReports
+   (Generate Sales Reports) as GenerateSalesReports
+  }
+
+  Admin -- Authentication
+  Admin -- UserManagement
+  Admin -- SupplierManagement
+  Admin -- CustomerManagement
+  Admin -- BookManagement
+  Admin -- OrderManagement
+  Admin -- SalesManagement
+  Admin -- OrderDetailsManagement
+  Admin -- SalesDetailsManagement
+  Admin -- GenerateOrderReports
+  Admin -- GenerateSalesReports
+
+  SalesClerk -- Authentication
+  SalesClerk -- CustomerManagement
+  SalesClerk -- SalesManagement
+  SalesClerk -- SalesDetailsManagement
+  SalesClerk -- GenerateSalesReports
+
+  Dashboard <.. Authentication : <<include>>
+}
+
+@enduml
