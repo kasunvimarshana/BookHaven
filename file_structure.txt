@@ -1,0 +1,567 @@
+Folder PATH listing for volume OS
+Volume serial number is D846-4060
+C:.
+|   .gitignore
+|   BookHaven.sln
+|   file_structure.bat
+|   file_structure.txt
+|   LICENSE.md
+|   README.md
+|   
++---BookHaven
+|   |   App.config
+|   |   BookHaven.csproj
+|   |   BookHaven.csproj.user
+|   |   BookHavenDB.mdf
+|   |   BookHavenDB_log.ldf
+|   |   db.mdf
+|   |   db_log.ldf
+|   |   Program.cs
+|   |   
+|   +---bin
+|   |   \---Debug
+|   |       +---net7.0-windows7.0
+|   |       |   |   BookHaven.deps.json
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.dll.config
+|   |       |   |   BookHaven.exe
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.runtimeconfig.json
+|   |       |   |   HarfBuzzSharp.dll
+|   |       |   |   LiveChartsCore.dll
+|   |       |   |   LiveChartsCore.SkiaSharpView.dll
+|   |       |   |   LiveChartsCore.SkiaSharpView.WinForms.dll
+|   |       |   |   OpenTK.dll
+|   |       |   |   OpenTK.GLControl.dll
+|   |       |   |   SkiaSharp.dll
+|   |       |   |   SkiaSharp.HarfBuzz.dll
+|   |       |   |   SkiaSharp.Views.Desktop.Common.dll
+|   |       |   |   SkiaSharp.Views.WindowsForms.dll
+|   |       |   |   System.Data.SqlClient.dll
+|   |       |   |   
+|   |       |   \---runtimes
+|   |       |       +---osx
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dylib
+|   |       |       |           libSkiaSharp.dylib
+|   |       |       |           
+|   |       |       +---unix
+|   |       |       |   \---lib
+|   |       |       |       \---net6.0
+|   |       |       |               System.Data.SqlClient.dll
+|   |       |       |               
+|   |       |       +---win
+|   |       |       |   \---lib
+|   |       |       |       \---net6.0
+|   |       |       |               System.Data.SqlClient.dll
+|   |       |       |               
+|   |       |       +---win-arm64
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dll
+|   |       |       |           libSkiaSharp.dll
+|   |       |       |           sni.dll
+|   |       |       |           
+|   |       |       +---win-x64
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dll
+|   |       |       |           libSkiaSharp.dll
+|   |       |       |           sni.dll
+|   |       |       |           
+|   |       |       \---win-x86
+|   |       |           \---native
+|   |       |                   libHarfBuzzSharp.dll
+|   |       |                   libSkiaSharp.dll
+|   |       |                   sni.dll
+|   |       |                   
+|   |       +---net8.0-windows
+|   |       |   |   BookHaven.deps.json
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.dll.config
+|   |       |   |   BookHaven.exe
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.runtimeconfig.json
+|   |       |   |   error_log.txt
+|   |       |   |   LiveCharts.dll
+|   |       |   |   LiveCharts.WinForms.dll
+|   |       |   |   LiveCharts.Wpf.dll
+|   |       |   |   System.Data.SqlClient.dll
+|   |       |   |   
+|   |       |   +---cs
+|   |       |   +---de
+|   |       |   +---es
+|   |       |   +---fr
+|   |       |   +---it
+|   |       |   +---ja
+|   |       |   +---ko
+|   |       |   +---pl
+|   |       |   +---pt-BR
+|   |       |   +---ru
+|   |       |   +---runtimes
+|   |       |   |   +---unix
+|   |       |   |   |   \---lib
+|   |       |   |   |       \---net8.0
+|   |       |   |   |               System.Data.SqlClient.dll
+|   |       |   |   |               
+|   |       |   |   +---win
+|   |       |   |   |   \---lib
+|   |       |   |   |       \---net8.0
+|   |       |   |   |               System.Data.SqlClient.dll
+|   |       |   |   |               
+|   |       |   |   +---win-arm64
+|   |       |   |   |   \---native
+|   |       |   |   |           sni.dll
+|   |       |   |   |           
+|   |       |   |   +---win-x64
+|   |       |   |   |   \---native
+|   |       |   |   |           sni.dll
+|   |       |   |   |           
+|   |       |   |   \---win-x86
+|   |       |   |       \---native
+|   |       |   |               sni.dll
+|   |       |   |               
+|   |       |   +---tr
+|   |       |   +---zh-Hans
+|   |       |   \---zh-Hant
+|   |       +---net8.0-windows7.0
+|   |       |   |   BookHaven.deps.json
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.dll.config
+|   |       |   |   BookHaven.exe
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.runtimeconfig.json
+|   |       |   |   HarfBuzzSharp.dll
+|   |       |   |   LiveChartsCore.dll
+|   |       |   |   LiveChartsCore.SkiaSharpView.dll
+|   |       |   |   LiveChartsCore.SkiaSharpView.WinForms.dll
+|   |       |   |   OpenTK.dll
+|   |       |   |   OpenTK.GLControl.dll
+|   |       |   |   SkiaSharp.dll
+|   |       |   |   SkiaSharp.HarfBuzz.dll
+|   |       |   |   SkiaSharp.Views.Desktop.Common.dll
+|   |       |   |   SkiaSharp.Views.WindowsForms.dll
+|   |       |   |   System.Data.SqlClient.dll
+|   |       |   |   
+|   |       |   \---runtimes
+|   |       |       +---osx
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dylib
+|   |       |       |           libSkiaSharp.dylib
+|   |       |       |           
+|   |       |       +---unix
+|   |       |       |   \---lib
+|   |       |       |       \---net8.0
+|   |       |       |               System.Data.SqlClient.dll
+|   |       |       |               
+|   |       |       +---win
+|   |       |       |   \---lib
+|   |       |       |       \---net8.0
+|   |       |       |               System.Data.SqlClient.dll
+|   |       |       |               
+|   |       |       +---win-arm64
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dll
+|   |       |       |           libSkiaSharp.dll
+|   |       |       |           sni.dll
+|   |       |       |           
+|   |       |       +---win-x64
+|   |       |       |   \---native
+|   |       |       |           libHarfBuzzSharp.dll
+|   |       |       |           libSkiaSharp.dll
+|   |       |       |           sni.dll
+|   |       |       |           
+|   |       |       \---win-x86
+|   |       |           \---native
+|   |       |                   libHarfBuzzSharp.dll
+|   |       |                   libSkiaSharp.dll
+|   |       |                   sni.dll
+|   |       |                   
+|   |       +---netcoreapp3.0
+|   |       \---netcoreapp3.1
+|   +---BLL
+|   |       AuthenticationService.cs
+|   |       BookService.cs
+|   |       CustomerService.cs
+|   |       OrderDetailService.cs
+|   |       OrderService.cs
+|   |       SalesDetailService.cs
+|   |       SalesService.cs
+|   |       SupplierService.cs
+|   |       UserService.cs
+|   |       
+|   +---DAL
+|   |       BookRepository.cs
+|   |       CustomerRepository.cs
+|   |       DatabaseHelper.cs
+|   |       IDatabaseHelper.cs
+|   |       IRepository.cs
+|   |       OrderDetailRepository.cs
+|   |       OrderRepository.cs
+|   |       SalesDetailRepository.cs
+|   |       SalesRepository.cs
+|   |       SQL.md
+|   |       SupplierRepository.cs
+|   |       UserRepository.cs
+|   |       
+|   +---Enums
+|   |       Month.cs
+|   |       OrderStatus.cs
+|   |       UserRole.cs
+|   |       
+|   +---Helpers
+|   |       LoggedInUserSession.cs
+|   |       
+|   +---Models
+|   |       BaseEntity.cs
+|   |       Book.cs
+|   |       Customer.cs
+|   |       Order.cs
+|   |       OrderDetail.cs
+|   |       Sale.cs
+|   |       SalesDetail.cs
+|   |       Supplier.cs
+|   |       User.cs
+|   |       
+|   +---obj
+|   |   |   BookHaven.csproj.nuget.dgspec.json
+|   |   |   BookHaven.csproj.nuget.g.props
+|   |   |   BookHaven.csproj.nuget.g.targets
+|   |   |   project.assets.json
+|   |   |   project.nuget.cache
+|   |   |   
+|   |   \---Debug
+|   |       +---net7.0-windows7.0
+|   |       |   |   .NETCoreApp,Version=v7.0.AssemblyAttributes.cs
+|   |       |   |   apphost.exe
+|   |       |   |   BookHaven.AssemblyInfo.cs
+|   |       |   |   BookHaven.AssemblyInfoInputs.cache
+|   |       |   |   BookHaven.assets.cache
+|   |       |   |   BookHaven.csproj.AssemblyReference.cache
+|   |       |   |   BookHaven.csproj.BuildWithSkipAnalyzers
+|   |       |   |   BookHaven.csproj.CoreCompileInputs.cache
+|   |       |   |   BookHaven.csproj.FileListAbsolute.txt
+|   |       |   |   BookHaven.csproj.GenerateResource.cache
+|   |       |   |   BookHaven.csproj.Up2Date
+|   |       |   |   BookHaven.designer.deps.json
+|   |       |   |   BookHaven.designer.runtimeconfig.json
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.GeneratedMSBuildEditorConfig.editorconfig
+|   |       |   |   BookHaven.genruntimeconfig.cache
+|   |       |   |   BookHaven.GlobalUsings.g.cs
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.sourcelink.json
+|   |       |   |   BookHaven.UI.Forms.Book.ManageBooksForm.resources
+|   |       |   |   BookHaven.UI.Forms.Customer.ManageCustomersForm.resources
+|   |       |   |   BookHaven.UI.Forms.LoginForm.resources
+|   |       |   |   BookHaven.UI.Forms.MainForm.resources
+|   |       |   |   BookHaven.UI.Forms.Order.ManageOrdersForm.resources
+|   |       |   |   BookHaven.UI.Forms.OrderDetail.ManageOrderDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Sale.ManageSalesForm.resources
+|   |       |   |   BookHaven.UI.Forms.SalesDetail.ManageSalesDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Supplier.ManageSuppliersForm.resources
+|   |       |   |   BookHaven.UI.Forms.User.ManageUsersForm.resources
+|   |       |   |   
+|   |       |   +---ref
+|   |       |   |       BookHaven.dll
+|   |       |   |       
+|   |       |   \---refint
+|   |       |           BookHaven.dll
+|   |       |           
+|   |       +---net8.0-windows
+|   |       |   |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|   |       |   |   apphost.exe
+|   |       |   |   BookHaven.AssemblyInfo.cs
+|   |       |   |   BookHaven.AssemblyInfoInputs.cache
+|   |       |   |   BookHaven.assets.cache
+|   |       |   |   BookHaven.csproj.AssemblyReference.cache
+|   |       |   |   BookHaven.csproj.BuildWithSkipAnalyzers
+|   |       |   |   BookHaven.csproj.CoreCompileInputs.cache
+|   |       |   |   BookHaven.csproj.FileListAbsolute.txt
+|   |       |   |   BookHaven.csproj.GenerateResource.cache
+|   |       |   |   BookHaven.csproj.Up2Date
+|   |       |   |   BookHaven.designer.deps.json
+|   |       |   |   BookHaven.designer.runtimeconfig.json
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.GeneratedMSBuildEditorConfig.editorconfig
+|   |       |   |   BookHaven.genruntimeconfig.cache
+|   |       |   |   BookHaven.GlobalUsings.g.cs
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.sourcelink.json
+|   |       |   |   BookHaven.UI.Forms.Book.ManageBooksForm.resources
+|   |       |   |   BookHaven.UI.Forms.Customer.ManageCustomersForm.resources
+|   |       |   |   BookHaven.UI.Forms.LoginForm.resources
+|   |       |   |   BookHaven.UI.Forms.MainForm.resources
+|   |       |   |   BookHaven.UI.Forms.Order.ManageOrdersForm.resources
+|   |       |   |   BookHaven.UI.Forms.OrderDetail.ManageOrderDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Sale.ManageSalesForm.resources
+|   |       |   |   BookHaven.UI.Forms.SalesDetail.ManageSalesDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Supplier.ManageSuppliersForm.resources
+|   |       |   |   BookHaven.UI.Forms.User.ManageUsersForm.resources
+|   |       |   |   
+|   |       |   +---ref
+|   |       |   |       BookHaven.dll
+|   |       |   |       
+|   |       |   \---refint
+|   |       |           BookHaven.dll
+|   |       |           
+|   |       +---net8.0-windows7.0
+|   |       |   |   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+|   |       |   |   apphost.exe
+|   |       |   |   BookHaven.AssemblyInfo.cs
+|   |       |   |   BookHaven.AssemblyInfoInputs.cache
+|   |       |   |   BookHaven.assets.cache
+|   |       |   |   BookHaven.csproj.AssemblyReference.cache
+|   |       |   |   BookHaven.csproj.CoreCompileInputs.cache
+|   |       |   |   BookHaven.csproj.FileListAbsolute.txt
+|   |       |   |   BookHaven.csproj.GenerateResource.cache
+|   |       |   |   BookHaven.csproj.Up2Date
+|   |       |   |   BookHaven.dll
+|   |       |   |   BookHaven.GeneratedMSBuildEditorConfig.editorconfig
+|   |       |   |   BookHaven.genruntimeconfig.cache
+|   |       |   |   BookHaven.GlobalUsings.g.cs
+|   |       |   |   BookHaven.pdb
+|   |       |   |   BookHaven.sourcelink.json
+|   |       |   |   BookHaven.UI.Forms.Book.ManageBooksForm.resources
+|   |       |   |   BookHaven.UI.Forms.Customer.ManageCustomersForm.resources
+|   |       |   |   BookHaven.UI.Forms.LoginForm.resources
+|   |       |   |   BookHaven.UI.Forms.MainForm.resources
+|   |       |   |   BookHaven.UI.Forms.Order.ManageOrdersForm.resources
+|   |       |   |   BookHaven.UI.Forms.OrderDetail.ManageOrderDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Sale.ManageSalesForm.resources
+|   |       |   |   BookHaven.UI.Forms.SalesDetail.ManageSalesDetailsForm.resources
+|   |       |   |   BookHaven.UI.Forms.Supplier.ManageSuppliersForm.resources
+|   |       |   |   BookHaven.UI.Forms.User.ManageUsersForm.resources
+|   |       |   |   
+|   |       |   +---ref
+|   |       |   |       BookHaven.dll
+|   |       |   |       
+|   |       |   \---refint
+|   |       |           BookHaven.dll
+|   |       |           
+|   |       +---netcoreapp3.0
+|   |       |       .NETCoreApp,Version=v3.0.AssemblyAttributes.cs
+|   |       |       BookHaven.AssemblyInfo.cs
+|   |       |       BookHaven.AssemblyInfoInputs.cache
+|   |       |       BookHaven.assets.cache
+|   |       |       BookHaven.csproj.AssemblyReference.cache
+|   |       |       BookHaven.GeneratedMSBuildEditorConfig.editorconfig
+|   |       |       BookHaven.GlobalUsings.g.cs
+|   |       |       
+|   |       \---netcoreapp3.1
+|   |               .NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+|   |               BookHaven.AssemblyInfo.cs
+|   |               BookHaven.AssemblyInfoInputs.cache
+|   |               BookHaven.assets.cache
+|   |               BookHaven.csproj.AssemblyReference.cache
+|   |               BookHaven.csproj.CoreCompileInputs.cache
+|   |               BookHaven.csproj.FileListAbsolute.txt
+|   |               BookHaven.csproj.GenerateResource.cache
+|   |               BookHaven.GeneratedMSBuildEditorConfig.editorconfig
+|   |               BookHaven.GlobalUsings.g.cs
+|   |               BookHaven.sourcelink.json
+|   |               BookHaven.UI.Forms.Book.ManageBooksForm.resources
+|   |               BookHaven.UI.Forms.Customer.ManageCustomersForm.resources
+|   |               BookHaven.UI.Forms.LoginForm.resources
+|   |               BookHaven.UI.Forms.MainForm.resources
+|   |               BookHaven.UI.Forms.Order.ManageOrdersForm.resources
+|   |               BookHaven.UI.Forms.OrderDetail.ManageOrderDetailsForm.resources
+|   |               BookHaven.UI.Forms.Sale.ManageSalesForm.resources
+|   |               BookHaven.UI.Forms.SalesDetail.ManageSalesDetailsForm.resources
+|   |               BookHaven.UI.Forms.Supplier.ManageSuppliersForm.resources
+|   |               BookHaven.UI.Forms.User.ManageUsersForm.resources
+|   |               
+|   +---Properties
+|   |   \---PublishProfiles
+|   +---Reports
+|   |       OrderDetailReportService.cs
+|   |       OrderReportService.cs
+|   |       SalesDetailReportService.cs
+|   |       SalesReportService.cs
+|   |       
+|   +---Seeders
+|   |       UserSeeder.cs
+|   |       
+|   +---UI
+|   |   \---Forms
+|   |       |   LoginForm.cs
+|   |       |   LoginForm.Designer.cs
+|   |       |   LoginForm.resx
+|   |       |   MainForm.cs
+|   |       |   MainForm.Designer.cs
+|   |       |   MainForm.resx
+|   |       |   
+|   |       +---Book
+|   |       |       ManageBooksForm.cs
+|   |       |       ManageBooksForm.Designer.cs
+|   |       |       ManageBooksForm.resx
+|   |       |       
+|   |       +---Customer
+|   |       |       ManageCustomersForm.cs
+|   |       |       ManageCustomersForm.Designer.cs
+|   |       |       ManageCustomersForm.resx
+|   |       |       
+|   |       +---Order
+|   |       |       ManageOrdersForm.cs
+|   |       |       ManageOrdersForm.Designer.cs
+|   |       |       ManageOrdersForm.resx
+|   |       |       
+|   |       +---OrderDetail
+|   |       |       ManageOrderDetailsForm.cs
+|   |       |       ManageOrderDetailsForm.Designer.cs
+|   |       |       ManageOrderDetailsForm.resx
+|   |       |       
+|   |       +---Sale
+|   |       |       ManageSalesForm.cs
+|   |       |       ManageSalesForm.Designer.cs
+|   |       |       ManageSalesForm.resx
+|   |       |       
+|   |       +---SalesDetail
+|   |       |       ManageSalesDetailsForm.cs
+|   |       |       ManageSalesDetailsForm.Designer.cs
+|   |       |       ManageSalesDetailsForm.resx
+|   |       |       
+|   |       +---Supplier
+|   |       |       ManageSuppliersForm.cs
+|   |       |       ManageSuppliersForm.Designer.cs
+|   |       |       ManageSuppliersForm.resx
+|   |       |       
+|   |       \---User
+|   |               ManageUsersForm.cs
+|   |               ManageUsersForm.Designer.cs
+|   |               ManageUsersForm.resx
+|   |               
+|   \---Utilities
+|           Logger.cs
+|           PasswordHelper.cs
+|           
++---BookHavenSetup
+|   |   BookHavenSetup.vdproj
+|   |   
+|   +---Debug
+|   |       BookHavenSetup.msi
+|   |       setup.exe
+|   |       
+|   \---Release
++---BookHavenSetupWizard
+|   |   BookHavenSetupWizard.vdproj
+|   |   
+|   +---Debug
+|   |       BookHavenSetupWizard.msi
+|   |       setup.exe
+|   |       
+|   \---Release
++---documents
+|       config.md
+|       document.docx
+|       document.pdf
+|       document.txt
+|       migrating-dotnet-framework.md
+|       README.md
+|       
++---resources
+|       BookHaven.ico
+|       BookHaven.webp
+|       file_structure.bat
+|       GNU_GPL_BookHaven.docx
+|       GNU_GPL_BookHaven.rtf
+|       
++---screenshots
+|   +---book
+|   |       01.png
+|   |       02.png
+|   |       03.png
+|   |       04.png
+|   |       05.png
+|   |       06.png
+|   |       07.png
+|   |       08.png
+|   |       09.png
+|   |       
+|   +---customer
+|   |       01.png
+|   |       02.png
+|   |       03.png
+|   |       04.png
+|   |       05.png
+|   |       06.png
+|   |       07.png
+|   |       08.png
+|   |       09.png
+|   |       
+|   +---install
+|   |       01.png
+|   |       02.png
+|   |       03.png
+|   |       04.png
+|   |       05.png
+|   |       06.png
+|   |       
+|   +---login
+|   |       01.png
+|   |       
+|   +---main
+|   |       01.png
+|   |       02.png
+|   |       
+|   +---order
+|   |       01.png
+|   |       
+|   +---sale
+|   |       01.png
+|   |       02.png
+|   |       03.png
+|   |       04.png
+|   |       05.png
+|   |       06.png
+|   |       07.png
+|   |       
+|   +---supplier
+|   |       01.png
+|   |       
+|   \---user
+|           01.png
+|           02.png
+|           03.png
+|           04.png
+|           05.png
+|           06.png
+|           07.png
+|           08.png
+|           
++---tmp
+|       BookHaven.ico
+|       BookHaven.webp
+|       GNU_GPL_BookHaven.docx
+|       GNU_GPL_BookHaven.rtf
+|       
+\---uml-diagrams
+    |   diagram.png
+    |   system-architecture.png
+    |   
+    +---class
+    |       chatuml-class-01.png
+    |       class-complete.txt
+    |       class.txt
+    |       
+    +---er
+    |       chatuml-er-01.png
+    |       er-diagram-01.png
+    |       er.txt
+    |       
+    +---sequence
+    |       eraser-login-01.png
+    |       eraser-login-02.png
+    |       eraser-sales-01.png
+    |       eraser-sales-02.png
+    |       eraser-user-01.png
+    |       eraser-user-02.png
+    |       
+    \---usercase
+            planttext-usercase-05.png
+            planttext-usercase-complete.png
+            planttext-usercase.png
+            usercase-01.txt
+            usercase-02.txt
+            usercase-03.txt
+            usercase-04.txt
+            usercase-05.txt
+            
