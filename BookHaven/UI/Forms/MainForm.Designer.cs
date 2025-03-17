@@ -42,13 +42,13 @@
             labelName = new Label();
             lblName = new Label();
             splitContainer1 = new SplitContainer();
+            label1 = new Label();
             panelMonthlySales = new Panel();
+            label2 = new Label();
             panelProductSales = new Panel();
             panelRevenueByGenre = new Panel();
             panelTopSellingBooks = new Panel();
             panelOrderStatus = new Panel();
-            label1 = new Label();
-            label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
@@ -217,12 +217,32 @@
             splitContainer1.SplitterDistance = 348;
             splitContainer1.TabIndex = 7;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(3, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(132, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Monthly Sales";
+            // 
             // panelMonthlySales
             // 
             panelMonthlySales.Location = new Point(3, 31);
             panelMonthlySales.Name = "panelMonthlySales";
             panelMonthlySales.Size = new Size(342, 406);
             panelMonthlySales.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(3, 3);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 25);
+            label2.TabIndex = 2;
+            label2.Text = "Book Sales";
             // 
             // panelProductSales
             // 
@@ -252,48 +272,33 @@
             panelOrderStatus.Size = new Size(341, 356);
             panelOrderStatus.TabIndex = 9;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(3, 3);
-            label1.Name = "label1";
-            label1.Size = new Size(123, 25);
-            label1.TabIndex = 1;
-            label1.Text = "Monthly Sales";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 3);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 25);
-            label2.TabIndex = 2;
-            label2.Text = "Book Sales";
-            // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(12, 473);
             label3.Name = "label3";
-            label3.Size = new Size(153, 25);
+            label3.Size = new Size(169, 25);
             label3.TabIndex = 10;
             label3.Text = "Revenue By Genre";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(520, 473);
             label4.Name = "label4";
-            label4.Size = new Size(152, 25);
+            label4.Size = new Size(162, 25);
             label4.TabIndex = 11;
             label4.Text = "Top Selling Books";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(872, 473);
             label5.Name = "label5";
-            label5.Size = new Size(111, 25);
+            label5.Size = new Size(119, 25);
             label5.TabIndex = 12;
             label5.Text = "Order Status";
             // 
