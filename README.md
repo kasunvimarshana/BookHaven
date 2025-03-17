@@ -1,6 +1,6 @@
 # BookHaven - Bookstore Management System
 
-![BookHaven Logo](./resources/BookHaven.webp")  
+![BookHaven Logo](./resources/BookHaven.png")  
 *A comprehensive bookstore management system built with C# and Windows Forms.*
 
 ## 📌 Table of Contents
